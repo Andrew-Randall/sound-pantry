@@ -2,6 +2,8 @@ class PacksController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
+    @packs = Pack.all
+    @user = current_user
   end
 
   protected
