@@ -7,7 +7,11 @@ class SamplesContainer extends Component {
     this.state = {
       samples: [],
       currentUser: this.props.currentUser
-    };
+    }
+    this.playFunction = this.playFunction.bind(this)
+    this.pauseFunction = this.pauseFunction.bind(this)
+    this.volumeUpFunction = this.volumeUpFunction.bind(this)
+    this.volumeDownFunction = this.volumeDownFunction.bind(this)
   }
 
   componentDidMount() {
@@ -31,6 +35,22 @@ class SamplesContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  playFunction(){
+    document.getElementById('player-2').play()
+  }
+
+  pauseFunction(){
+    document.getElementById('player-2').pause()
+  }
+
+  volumeUpFunction(){
+    document.getElementById('player-2').volume += 0.2
+  }
+
+  volumeDownFunction(){
+    document.getElementById('player-2').volume -= 0.2
+  }
+
   render() {
     let samplesArray = this.state.samples.map(sample => {
       return (
@@ -41,6 +61,10 @@ class SamplesContainer extends Component {
           path={sample.path}
           userId={sample.user_id}
           packId={sample.pack_id}
+          play={this.playFunction}
+          pause={this.pauseFunction}
+          volumeUp={this.volumeUpFunction}
+          volumeDown={this.volumeDownFunction}
         />
       );
     });
