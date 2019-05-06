@@ -7,7 +7,20 @@ packs=[
   ["Bass", 1, "A collection of bass one-shots synthesized with Serum and processed in Ableton. Great for Dubstep, Hard Bass, Bass House and much more!", "https://sound-pantry.s3.amazonaws.com/bass.png"]
 ]
 
+samples=[
+  ["Kick1", 1, 1, "https://sound-pantry.s3.amazonaws.com/kick1.mp3"],
+  ["Kick2", 1, 1, "https://sound-pantry.s3.amazonaws.com/kick2.mp3"],
+  ["Kick3", 1, 1, "https://sound-pantry.s3.amazonaws.com/kick3.mp3"],
+  ["Kick4", 1, 1, "https://sound-pantry.s3.amazonaws.com/kick4.mp3"],
+  ["Kick5", 1, 1, "https://sound-pantry.s3.amazonaws.com/kick5.mp3"]
+]
+
 packs.each do |pack|
   name, user_id, description, img = pack
   Pack.create!(name: name, user_id: user_id, description: description, img: img)
+end
+
+samples.each do |sample|
+  name, user_id, pack_id, path = sample
+  Sample.create!(name: name, user_id: user_id, pack_id: pack_id, path: path)
 end
