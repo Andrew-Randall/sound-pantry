@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :packs, only: [:index, :create, :show, :destroy, :update]
+      resources :packs, only: [:index, :create, :show, :destroy, :update] do
+        resources :samples, only: [:index, :show, :create, :destroy, :update]
+      end
     end
   end
 
