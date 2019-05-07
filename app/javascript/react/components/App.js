@@ -1,5 +1,5 @@
-import React from 'react';
-import { Router, browserHistory, Route} from 'react-router';
+import React from 'react'
+import { Router, browserHistory, Route} from 'react-router'
 import PacksContainer from './PacksContainer'
 import PackShowContainer from './PackShowContainer'
 

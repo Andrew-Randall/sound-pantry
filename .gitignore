@@ -13,7 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-
 /node_modules
 /yarn-error.log
 
@@ -29,3 +28,6 @@
 yarn-debug.log*
 .yarn-integrity
 coverage/*
+
+# Ignore uploaded files in test/development
+/public/uploads
