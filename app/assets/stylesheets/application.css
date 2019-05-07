@@ -35,3 +35,97 @@
    filter: grayscale(0%);
    opacity: 1;
  }
+
+ #player-buttons {
+   border-radius: 100%;
+   padding: 10px;
+   background-color: #373737;
+   height: 50px;
+   margin: 10px;
+ }
+
+ /* SHOW PAGE BELOW */
+
+#show-page {
+  background-color: #DCE4F7;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: 45% 55%;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "pack-image pack-samples"
+    "pack-description pack-description"
+    "pack-reviews .";
+  padding: 30px 5vw;
+}
+
+#show-page #show-image {
+  position: relative;
+  text-align: center;
+}
+
+#show-page img {
+  border: 3px solid #63444a;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px;
+  grid-area: pack-image;
+  max-width: 100%;
+}
+
+#show-text {
+  grid-area: pack-description;
+  margin-top: 20px;
+  height: 200px;
+}
+
+#show-page h2 {
+  background-color: #0A516D;
+  color: white;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0px 15px;
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px #111;
+}
+
+@media (max-width: 800px) {
+  #show-page {
+    display: initial;
+    max-width: 90%;
+    padding: 0;
+  }
+
+  #show-page img {
+    grid-area: none;
+  }
+}
+
+#show-text p {
+  background-color: #2B2726;
+  border: 15px solid;
+  border-color: #575A65;
+  color: white;
+  font-size: 1.25em;
+  letter-spacing: 1px;
+  min-height: 150px;
+  padding: 15px;
+  position: relative;
+}
+
+#meme-description .meme-edit-form {
+  margin: 30px 0 0 0;
+}
+
+.sample-tile {
+  grid-area: pack-samples;
+  margin-left: 100px;
+  margin-top: 15px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  text-align: center;
+  background-color: white;
+}

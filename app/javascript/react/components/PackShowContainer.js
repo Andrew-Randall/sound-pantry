@@ -13,7 +13,7 @@ class PackShowContainer extends Component {
   }
 
   componentDidMount() {
-    let packId = this.props.params.id;
+    let packId = this.props.params.id
 
     fetch(`/api/v1/packs/${packId}`, {
       credentials: "same-origin",
@@ -25,11 +25,11 @@ class PackShowContainer extends Component {
     })
     .then(response => {
       if (response.ok) {
-        return response;
+        return response
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw error;
+          error = new Error(errorMessage)
+        throw error
       }
     })
     .then(response => response.json())
@@ -41,9 +41,9 @@ class PackShowContainer extends Component {
       if (body.current_user === null) {
         body.current_user = noUser;
       }
-      this.setState({ pack: body.pack, currentUser: body.current_user, samples: body.samples });
+      this.setState({ pack: body.pack, currentUser: body.current_user, samples: body.samples })
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   render() {
@@ -54,7 +54,7 @@ class PackShowContainer extends Component {
         </div>
         <div id="show-text">
           <h2>
-            {this.state.pack.name}
+            About {this.state.pack.name}
           </h2>
           <div id="pack-description">
             <p>

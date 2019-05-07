@@ -1,28 +1,30 @@
-import React, { Component } from "react";
-import SampleTile from "./SampleTile";
+import React, { Component } from "react"
+import SampleTile from "./SampleTile"
 
 class SamplesContainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       samples: [],
       currentUser: this.props.currentUser
     }
-    this.playFunction = this.playFunction.bind(this)
-    this.pauseFunction = this.pauseFunction.bind(this)
-    this.volumeUpFunction = this.volumeUpFunction.bind(this)
-    this.volumeDownFunction = this.volumeDownFunction.bind(this)
+    // this.playFunction = this.playFunction.bind(this)
+    // this.pauseFunction = this.pauseFunction.bind(this)
+    // this.volumeUpFunction = this.volumeUpFunction.bind(this)
+    // this.volumeDownFunction = this.volumeDownFunction.bind(this)
+    // this.downloadFunction = this.downloadFunction.bind(this)
   }
 
   componentDidMount() {
     let packId = this.props.packId;
+
     fetch(`/api/v1/packs/${packId}/samples`)
     .then(response => {
       if (response.ok) {
-        return response;
+        return response
       } else {
         let errorMessage = `${response.status}(${response.statusText})`,
-          error = new Error(errorMessage);
+          error = new Error(errorMessage)
         throw error;
       }
     })
@@ -32,27 +34,32 @@ class SamplesContainer extends Component {
         samples: body
       });
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  playFunction(){
-    document.getElementById('player-2').play()
-  }
 
-  pauseFunction(){
-    document.getElementById('player-2').pause()
-  }
-
-  volumeUpFunction(){
-    document.getElementById('player-2').volume += 0.2
-  }
-
-  volumeDownFunction(){
-    document.getElementById('player-2').volume -= 0.2
-  }
 
   render() {
     let samplesArray = this.state.samples.map(sample => {
+      function playFunction(){
+        document.getElementById('player-' + sample.id).play()
+      }
+
+      function pauseFunction(){
+        document.getElementById('player-' + sample.id).pause()
+      }
+
+      function volumeUpFunction(){
+        document.getElementById('player-' + sample.id).volume += 0.2
+      }
+
+      function volumeDownFunction(){
+        document.getElementById('player-' + sample.id).volume -= 0.2
+      }
+
+      function downloadFunction(){
+        document.getElementById('player-' + sample.id).download()
+      }
       return (
         <SampleTile
           key={sample.id}
@@ -61,20 +68,21 @@ class SamplesContainer extends Component {
           path={sample.path}
           userId={sample.user_id}
           packId={sample.pack_id}
-          play={this.playFunction}
-          pause={this.pauseFunction}
-          volumeUp={this.volumeUpFunction}
-          volumeDown={this.volumeDownFunction}
+          play={playFunction}
+          pause={pauseFunction}
+          volumeUp={volumeUpFunction}
+          volumeDown={volumeDownFunction}
+          download={downloadFunction}
         />
-      );
-    });
+      )
+    })
 
     return (
       <div id="pack-samples">
         <div className="pack-sample-array-container">{samplesArray}</div>
       </div>
-    );
+    )
   }
 }
 
-export default SamplesContainer;
+export default SamplesContainer

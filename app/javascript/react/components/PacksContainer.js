@@ -4,7 +4,7 @@ import PackTile from './PackTile'
 
 class PacksContainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state={
       packs: []
     }
@@ -14,11 +14,11 @@ class PacksContainer extends Component {
     fetch('/api/v1/packs')
     .then(response => {
       if (response.ok) {
-        return response;
+        return response
       } else {
         let errorMessage = `${response.status}(${response.statusText})` ,
-        error = new Error(errorMessage);
-        throw(error);
+        error = new Error(errorMessage)
+        throw(error)
       }
       })
     .then(response => response.json())
