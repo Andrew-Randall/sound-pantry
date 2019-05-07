@@ -1,3 +1,5 @@
+require 'fog-aws'
+
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -7,7 +9,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   if Rails.env.test?
     storage :file
   else
-    # storage :fog
+    storage :fog
   end
   # storage :fog
 
