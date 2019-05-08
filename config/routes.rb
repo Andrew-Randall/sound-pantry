@@ -7,8 +7,10 @@ Rails.application.routes.draw do
       resources :packs, only: [:index, :create, :show, :destroy, :update] do
         resources :samples, only: [:index, :show, :create, :destroy, :update]
       end
+      resources :users, only: [:show]
     end
   end
 
   resources :packs, only: [:index, :new, :show]
+  resources :users, only: [:show]
 end

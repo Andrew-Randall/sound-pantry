@@ -2,6 +2,7 @@ import React from 'react'
 import { Router, browserHistory, Route} from 'react-router'
 import PacksContainer from './PacksContainer'
 import PackShowContainer from './PackShowContainer'
+import UserShowContainer from './UserShowContainer'
 
 export const App = (props) => {
   return (
@@ -10,6 +11,7 @@ export const App = (props) => {
         <Route path='/' component={PacksContainer}/>
         <Route path='/packs' component={PacksContainer} />
         <Route path='/packs/:id' component={PackShowContainer} />
+        <Route path='users/:id' component={UserShowContainer} />
       </Router>
     </div>
   )

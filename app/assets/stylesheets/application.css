@@ -16,9 +16,36 @@
 
  */
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url("http://hdqwalls.com/wallpapers/small-memory-lp.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+#show-title{
+  color: white;
+}
+
+.top-bar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
  #gallery {
    columns: 3 200px;
-   margin: 50px 15vw;
+   margin: 50px 10vw 0px 10vw;
+   background-color: #2D2D29;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   bottom: 0;
  }
 
  #gallery img {
@@ -48,6 +75,7 @@
 
 #show-page {
   background-color: #DCE4F7;
+  background-size: cover;
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 45% 55%;
