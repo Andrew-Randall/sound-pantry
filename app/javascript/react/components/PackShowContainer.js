@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import { Link } from "react-router"
 import SamplesContainer from "./SamplesContainer"
 import SampleTile from "./SampleTile"
 
@@ -7,6 +8,7 @@ class PackShowContainer extends Component {
     super(props)
     this.state = {
       pack: {},
+      creator: "",
       samples: {},
       currentUser: ""
     }
@@ -41,7 +43,7 @@ class PackShowContainer extends Component {
       if (body.current_user === null) {
         body.current_user = noUser;
       }
-      this.setState({ pack: body.pack, currentUser: body.current_user, samples: body.samples })
+      this.setState({ pack: body.pack, creator: body.creator, currentUser: body.current_user, samples: body.samples })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
@@ -58,7 +60,12 @@ class PackShowContainer extends Component {
           </h2>
           <div id="pack-description">
             <p>
-              {this.state.pack.description}
+              {this.state.pack.description}<br /><br />
+              Created by
+              <Link to={`/users/${this.state.creator.id}`}>
+                  {this.state.creator.username}
+              </Link>
+
             </p>
           </div>
         </div>
