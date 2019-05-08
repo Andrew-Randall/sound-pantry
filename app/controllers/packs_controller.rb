@@ -5,6 +5,10 @@ class PacksController < ApplicationController
   end
 
   def show
+    binding.pry
+  end
+
+  def new
   end
 
   protected

@@ -22,15 +22,13 @@
 }
 
 body{
-  background-image: url("http://hdqwalls.com/wallpapers/small-memory-lp.jpg");
+  background-image: url("https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
   background-attachment: fixed;
   background-size: cover;
   position: relative;
 }
 
-#show-title{
-  color: white;
-}
+
 
 .top-bar{
   position: sticky;
@@ -74,8 +72,6 @@ body{
  /* SHOW PAGE BELOW */
 
 #show-page {
-  background-color: #DCE4F7;
-  background-size: cover;
   display: grid;
   grid-column-gap: 20px;
   grid-template-columns: 45% 55%;
@@ -98,6 +94,10 @@ body{
   box-shadow: 4px 4px 6px;
   grid-area: pack-image;
   max-width: 100%;
+}
+
+#show-title{
+  color: white;
 }
 
 #show-text {
