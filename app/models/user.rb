@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
-  validates :username, uniqueness: true
-
   has_many :comments
   has_many :packs
   has_many :samples
