@@ -22,7 +22,7 @@ class Api::V1::PacksController < ApplicationController
       description: user_input["description"]
     )
 
-    if meme.save
+    if pack.save
       render json: { pack: pack }
     else
       render json: { error: pack.errors.full_messages }, status: :unprocessable_entity

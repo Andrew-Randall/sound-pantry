@@ -26,7 +26,7 @@ class PacksFormContainer extends Component {
       description: this.state.description
     }
 
-    fetch ('api/v1/packs', {
+    fetch ('/api/v1/packs', {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(packPayload),
