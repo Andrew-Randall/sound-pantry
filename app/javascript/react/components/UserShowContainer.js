@@ -25,7 +25,6 @@ class UserShowContainer extends Component {
       })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({user: body.user, packs: body.packs})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));

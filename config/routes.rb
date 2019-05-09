@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :packs, only: [:index, :new, :show]
+  resources :packs, only: [:index, :new, :show] do
+    resources :samples, only: [:index, :show, :new]
+  end
   resources :users, only: [:show]
 end

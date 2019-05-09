@@ -61,11 +61,7 @@ class PackShowContainer extends Component {
           <div id="pack-description">
             <p>
               {this.state.pack.description}<br /><br />
-              Created by
-              <Link to={`/users/${this.state.creator.id}`}>
-                  {this.state.creator.username}
-              </Link>
-
+              Created by <Link to={`/users/${this.state.creator.id}`}>{this.state.creator.username}</Link>
             </p>
           </div>
         </div>

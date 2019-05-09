@@ -43,6 +43,7 @@ class PacksContainer extends Component {
 
     return(
       <div>
+      <Link to="/packs/new">CREATE PACK</Link>
         <div id="gallery">
           {packs}
         </div>
