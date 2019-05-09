@@ -1,23 +1,20 @@
 import React, { Component } from "react"
+import SamplesFormContainer from "./SamplesFormContainer"
 import SampleTile from "./SampleTile"
 
 class SamplesContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      samples: [],
-      currentUser: this.props.currentUser
+      samples: []
     }
-    // this.playFunction = this.playFunction.bind(this)
-    // this.pauseFunction = this.pauseFunction.bind(this)
-    // this.volumeUpFunction = this.volumeUpFunction.bind(this)
-    // this.volumeDownFunction = this.volumeDownFunction.bind(this)
-    // this.downloadFunction = this.downloadFunction.bind(this)
+    this.addSample = this.addSample.bind(this);
+    this.forceRender = this.forceRender.bind(this);
   }
 
   componentDidMount() {
     let packId = this.props.packId;
-
+    let currentUserId = this.props.currentUserId
     fetch(`/api/v1/packs/${packId}/samples`)
     .then(response => {
       if (response.ok) {
@@ -37,7 +34,13 @@ class SamplesContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  forceRender() {
+    this.componentDidMount();
+  }
 
+  addSample(sample) {
+    this.forceRender();
+  }
 
   render() {
     let samplesArray = this.state.samples.map(sample => {
@@ -80,6 +83,13 @@ class SamplesContainer extends Component {
     return (
       <div id="pack-samples">
         <div className="pack-sample-array-container">{samplesArray}</div>
+        <div id="sample-form">
+          <SamplesFormContainer
+            packId={this.props.packId}
+            userId={this.props.currentUserId}
+            addSample={this.addSample}
+          />
+        </div>
       </div>
     )
   }

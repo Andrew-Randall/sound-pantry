@@ -61,13 +61,7 @@ body{
    opacity: 1;
  }
 
- #player-buttons {
-   border-radius: 100%;
-   padding: 10px;
-   background-color: #373737;
-   height: 50px;
-   margin: 10px;
- }
+
 
  /* SHOW PAGE BELOW */
 
@@ -154,6 +148,38 @@ body{
   border-style: solid;
   border-width: 2px;
   border-color: black;
+  border-radius: 50px;
   text-align: center;
-  background-color: white;
+  background-color:rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#player-buttons {
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #6E6662;
+  color: white;
+  height: 50px;
+  margin: 10px;
+  font-size: .8em;
+  font-weight: normal;
+}
+
+#new-pack-form{
+  margin: 30px 300px 0px 300px;
+  text-align: center;
+}
+
+#new-pack-form h2{
+  color: white;
+  text-shadow: 1px 2px 2px black;
+}
+
+#new-pack-form label{
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  font-size: 1em;
+  margin: 30px 0 10px 0;
 }

@@ -7,7 +7,7 @@ const PackTile = props => {
       <dd>
         <Link to={`/packs/${props.id}`}>
           <dl>
-            <img src={props.img} />
+            <img src={props.img} width="5000" height="5000"/>
           </dl>
         </Link>
       </dd>

@@ -4,6 +4,12 @@ import { render } from 'react-dom'
 import App from '../react/components/App'
 import RedBox from 'redbox-react'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPlayCircle)
+
 document.addEventListener('DOMContentLoaded', () => {
   let reactElement = document.getElementById('app')
 
