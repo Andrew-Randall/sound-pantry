@@ -44,11 +44,22 @@ class PackShowContainer extends Component {
         body.current_user = noUser;
       }
       this.setState({ pack: body.pack, creator: body.creator, currentUser: body.current_user, samples: body.samples })
+      return this.state
+    })
+    .then(stateFul => {
+      this.setState({state:stateFul})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   render() {
+    let samples
+    if (this.state.samples.length >1){
+        samples = <SamplesContainer
+          currentUserId={this.state.currentUser.id}
+          packId={this.props.params.id}
+      />
+    }
     return (
       <div id="show-page">
         <div id="show-image">
@@ -65,10 +76,7 @@ class PackShowContainer extends Component {
             </p>
           </div>
         </div>
-        <SamplesContainer
-            currentUser={this.state.currentUser}
-            packId={this.props.params.id}
-        />
+        {samples}
       </div>
     )
   }

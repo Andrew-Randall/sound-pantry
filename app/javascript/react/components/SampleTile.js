@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const SampleTile = props => {
 
@@ -7,7 +8,8 @@ const SampleTile = props => {
     <div className="sample-tile">
       <audio id={"player-" + props.id} src={props.path}></audio>
       <div>
-        {props.name}<button id="player-buttons" onClick={props.play}>Play</button>
+        {props.name}
+        <button id="player-buttons" onClick={props.play}>Play</button>
         <button id="player-buttons" onClick={props.pause}>Pause</button>
         <button id="player-buttons" onClick={props.volumeUp}>Vol+</button>
         <button id="player-buttons" onClick={props.volumeDown}>Vol-</button>

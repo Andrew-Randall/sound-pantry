@@ -7,9 +7,25 @@ class Api::V1::SamplesController < ApplicationController
     render json: samples
   end
 
-  private
+  def create
+    binding.pry
+    user = User.find(params[:user_id])
+    pack = Pack.find(params[:pack_id])
+    name = params[:name]
+    path = params[:path]
 
-  def sample_params
-    params.require(:sample).permit(:user_id, :pack_id, :name, :path)
+    sample = Sample.new(user_id: user.id, pack_id: pack.id, name: name, path: path)
+    if sample.save
+      render json: { sample: sample }
+    else
+      render json: { error: review.errors.full_messages },
+        status: :unprocessable_entity
+    end
   end
+
+  private
+  #
+  # def sample_params
+  #   params.require(:sample).permit(:user_id, :pack_id, :name, :path)
+  # end
 end
