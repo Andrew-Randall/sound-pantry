@@ -45,8 +45,9 @@ class UserShowContainer extends Component {
 
     return(
       <div>
-        <div id="gallery">
-          <h1 id="show-title"> Packs by {this.state.user.username} </h1>
+        <h1 id="show-title"> Packs by {this.state.user.username} </h1>
+        <div id="gallery-user">
+
           {collections}
         </div>
       </div>

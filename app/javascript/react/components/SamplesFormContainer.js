@@ -27,7 +27,7 @@ class SamplesFormContainer extends Component {
     body.append("user_id",this.props.userId)
     body.append("collection_id",this.props.collectionId)
     body.append("name",this.state.name)
-    body.append("path",this.state.file[0])
+    body.append("sample_path",this.state.file[0])
 
     fetch(`/api/v1/collections/${this.props.collectionId}/samples`, {
       credentials: "same-origin",
@@ -86,7 +86,7 @@ class SamplesFormContainer extends Component {
               </Dropzone>
             </div>
             <aside>
-              <h2>Dropped files</h2>
+              <h2 id="dropzone-text">Dropped files</h2>
               <ul>
                 {
                   this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)

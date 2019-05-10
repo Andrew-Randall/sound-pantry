@@ -12,9 +12,9 @@ class Api::V1::SamplesController < ApplicationController
     user = User.find(params[:user_id])
     collection = Collection.find(params[:collection_id])
     name = params[:name]
-    path = params[:path].original_filename
+    path = params[:sample_path]
 
-    sample = Sample.new(user_id: user.id, collection_id: collection.id, name: name, path: path)
+    sample = Sample.new(user_id: user.id, collection_id: collection.id, name: name, sample_path: path)
     if sample.save
       render json: { sample: sample }
     else
