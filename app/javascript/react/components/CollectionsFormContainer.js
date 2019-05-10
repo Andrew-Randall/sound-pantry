@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TextField from './TextField'
 
-class PacksFormContainer extends Component {
+class CollectionsFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state={
@@ -20,16 +20,16 @@ class PacksFormContainer extends Component {
 
   handleOnSubmit(event){
     event.preventDefault()
-    let packPayload={
+    let collectionPayload={
       name: this.state.name,
       img: this.state.img,
       description: this.state.description
     }
 
-    fetch ('/api/v1/packs', {
+    fetch ('/api/v1/collections', {
       credentials: 'same-origin',
       method: 'POST',
-      body: JSON.stringify(packPayload),
+      body: JSON.stringify(collectionPayload),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ class PacksFormContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      return window.location.href = `/packs/${body.pack.id}`
+      return window.location.href = `/collections/${body.collection.id}`
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 
@@ -89,4 +89,4 @@ class PacksFormContainer extends Component {
   }
 }
 
-export default PacksFormContainer
+export default CollectionsFormContainer

@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
       t.integer :rating, null: false
 
       t.belongs_to :user
-      t.belongs_to :pack
+      t.belongs_to :collection
 
       t.timestamps
     end

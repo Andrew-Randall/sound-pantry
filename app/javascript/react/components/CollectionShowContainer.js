@@ -3,11 +3,11 @@ import { Link } from "react-router"
 import SamplesContainer from "./SamplesContainer"
 import SampleTile from "./SampleTile"
 
-class PackShowContainer extends Component {
+class CollectionShowContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pack: {},
+      collection: {},
       creator: "",
       samples: {},
       currentUser: ""
@@ -15,9 +15,9 @@ class PackShowContainer extends Component {
   }
 
   componentDidMount() {
-    let packId = this.props.params.id
+    let collectionId = this.props.params.id
 
-    fetch(`/api/v1/packs/${packId}`, {
+    fetch(`/api/v1/collections/${collectionId}`, {
       credentials: "same-origin",
       method: "GET",
       headers: {
@@ -43,7 +43,7 @@ class PackShowContainer extends Component {
       if (body.current_user === null) {
         body.current_user = noUser;
       }
-      this.setState({ pack: body.pack, creator: body.creator, currentUser: body.current_user, samples: body.samples })
+      this.setState({ collection: body.collection, creator: body.creator, currentUser: body.current_user, samples: body.samples })
       return this.state
     })
     .then(stateFul => {
@@ -57,21 +57,21 @@ class PackShowContainer extends Component {
     if (this.state.samples.length >1){
         samples = <SamplesContainer
           currentUserId={this.state.currentUser.id}
-          packId={this.props.params.id}
+          collectionId={this.props.params.id}
       />
     }
     return (
       <div id="show-page">
         <div id="show-image">
-          <img src={this.state.pack.img} />
+          <img src={this.state.collection.img} />
         </div>
         <div id="show-text">
           <h2>
-            About {this.state.pack.name}
+            About {this.state.collection.name}
           </h2>
           <div id="pack-description">
             <p>
-              {this.state.pack.description}<br /><br />
+              {this.state.collection.description}<br /><br />
               Created by <Link to={`/users/${this.state.creator.id}`}>{this.state.creator.username}</Link>
             </p>
           </div>
@@ -82,4 +82,4 @@ class PackShowContainer extends Component {
   }
 }
 
-export default PackShowContainer
+export default CollectionShowContainer

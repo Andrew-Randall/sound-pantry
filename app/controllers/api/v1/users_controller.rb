@@ -3,9 +3,9 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    packs = user.packs
+    collections = user.collections
 
-    render json: {user: user, packs: packs}
+    render json: {user: user, collections: collections}
   end
 
   private

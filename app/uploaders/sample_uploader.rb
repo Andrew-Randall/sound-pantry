@@ -1,3 +1,5 @@
+require 'fog-aws'
+
 class SampleUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
