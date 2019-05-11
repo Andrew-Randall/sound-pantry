@@ -1,4 +1,4 @@
-class Pack < ApplicationRecord
+class Collection < ApplicationRecord
   belongs_to :user
   has_many :samples
   has_many :comments

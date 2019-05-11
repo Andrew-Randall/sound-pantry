@@ -1,20 +1,20 @@
 class Api::V1::SamplesController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
+  skip_before_action :verify_authenticity_token
 
   def index
-    pack = Pack.find(params[:pack_id])
-    samples = pack.samples
+    collection = Collection.find(params[:collection_id])
+    samples = collection.samples
     render json: samples
   end
 
   def create
-    binding.pry
     user = User.find(params[:user_id])
-    pack = Pack.find(params[:pack_id])
+    collection = Collection.find(params[:collection_id])
     name = params[:name]
-    path = params[:path]
+    path = params[:sample_path]
 
-    sample = Sample.new(user_id: user.id, pack_id: pack.id, name: name, path: path)
+    sample = Sample.new(user_id: user.id, collection_id: collection.id, name: name, sample_path: path)
     if sample.save
       render json: { sample: sample }
     else

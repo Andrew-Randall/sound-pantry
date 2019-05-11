@@ -1,13 +1,13 @@
 import React, { Component } from "react"
 import { Link } from "react-router"
-import PackTile from './PackTile'
+import CollectionTile from './CollectionTile'
 
 class UserShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state={
       user: "",
-      packs: []
+      collections: []
     }
   }
 
@@ -25,29 +25,30 @@ class UserShowContainer extends Component {
       })
     .then(response => response.json())
     .then(body => {
-      this.setState({user: body.user, packs: body.packs})
+      this.setState({user: body.user, collections: body.collections})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-    let packs = this.state.packs.map(pack => {
+    let collections = this.state.collections.map(collection => {
       return (
-        <PackTile
-          key={pack.id}
-          id={pack.id}
-          user_id={pack.user_id}
-          name={pack.name}
-          img={pack.img}
+        <CollectionTile
+          key={collection.id}
+          id={collection.id}
+          user_id={collection.user_id}
+          name={collection.name}
+          img={collection.img}
         />
       )
     })
 
     return(
       <div>
-        <div id="gallery">
-          <h1 id="show-title"> Packs by {this.state.user.username} </h1>
-          {packs}
+        <h1 id="show-title"> Packs by {this.state.user.username} </h1>
+        <div id="gallery-user">
+
+          {collections}
         </div>
       </div>
     )

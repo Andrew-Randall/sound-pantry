@@ -1,11 +1,10 @@
-class PacksController < ApplicationController
+class CollectionsController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
   end
 
   def show
-    binding.pry
   end
 
   def new

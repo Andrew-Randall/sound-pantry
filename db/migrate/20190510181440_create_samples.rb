@@ -5,7 +5,7 @@ class CreateSamples < ActiveRecord::Migration[5.2]
       t.string :path
 
       t.belongs_to :user
-      t.belongs_to :pack
+      t.belongs_to :collection
 
       t.timestamps
     end

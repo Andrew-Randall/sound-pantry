@@ -13,9 +13,9 @@ class SamplesContainer extends Component {
   }
 
   componentDidMount() {
-    let packId = this.props.packId;
+    let collectionId = this.props.collectionId;
     let currentUserId = this.props.currentUserId
-    fetch(`/api/v1/packs/${packId}/samples`)
+    fetch(`/api/v1/collections/${collectionId}/samples`)
     .then(response => {
       if (response.ok) {
         return response
@@ -85,7 +85,7 @@ class SamplesContainer extends Component {
         <div className="pack-sample-array-container">{samplesArray}</div>
         <div id="sample-form">
           <SamplesFormContainer
-            packId={this.props.packId}
+            collectionId={this.props.collectionId}
             userId={this.props.currentUserId}
             addSample={this.addSample}
           />

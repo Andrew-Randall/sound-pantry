@@ -1,9 +1,9 @@
 import React from 'react'
 import { Router, browserHistory, Route, IndexRoute} from 'react-router'
-import PacksContainer from './PacksContainer'
-import PackShowContainer from './PackShowContainer'
+import CollectionsContainer from './CollectionsContainer'
+import CollectionShowContainer from './CollectionShowContainer'
 import UserShowContainer from './UserShowContainer'
-import PacksFormContainer from './PacksFormContainer'
+import CollectionsFormContainer from './CollectionsFormContainer'
 
 
 export const App = (props) => {
@@ -11,10 +11,10 @@ export const App = (props) => {
     <div>
       <Router history={browserHistory}>
       <Route path="/">
-        <IndexRoute component={PacksContainer}/>
-        <Route path='/packs' component={PacksContainer} />
-        <Route path='/packs/new' component={PacksFormContainer} />
-        <Route path='/packs/:id' component={PackShowContainer} />
+        <IndexRoute component={CollectionsContainer}/>
+        <Route path='/collections' component={CollectionsContainer} />
+        <Route path='/collections/new' component={CollectionsFormContainer} />
+        <Route path='/collections/:id' component={CollectionShowContainer} />
         <Route path='/users/:id' component={UserShowContainer} />
       </Route>
       </Router>

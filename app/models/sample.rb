@@ -1,6 +1,6 @@
 class Sample < ApplicationRecord
-  mount_uploader :sample, SampleUploader
-
   belongs_to :user
-  belongs_to :pack
+  belongs_to :collection
+
+  mount_uploader :sample_path, SampleUploader
 end
