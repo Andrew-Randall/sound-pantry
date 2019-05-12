@@ -76,6 +76,7 @@ class SamplesContainer extends Component {
           volumeUp={volumeUpFunction}
           volumeDown={volumeDownFunction}
           download={downloadFunction}
+          force={this.forceRender}
         />
       )
     })
@@ -83,13 +84,6 @@ class SamplesContainer extends Component {
     return (
       <div id="pack-samples">
         <div className="pack-sample-array-container">{samplesArray}</div>
-        <div id="sample-form">
-          <SamplesFormContainer
-            collectionId={this.props.collectionId}
-            userId={this.props.currentUserId}
-            addSample={this.addSample}
-          />
-        </div>
       </div>
     )
   }

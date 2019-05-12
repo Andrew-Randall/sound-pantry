@@ -101,8 +101,9 @@ body{
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "pack-image pack-samples"
+    "sample-form pack-samples"
     "pack-description pack-description"
-    "pack-reviews .";
+    "pack-reviews pack-reviews";
   padding: 30px 5vw;
 }
 
@@ -130,7 +131,7 @@ body{
 }
 
 #show-page h2 {
-  background-color: #0A516D;
+  background-color: #2B2726;
   color: white;
   font-family: "Fjalla One", sans-serif;
   font-size: 40px;
@@ -142,8 +143,64 @@ body{
   text-shadow: 1px 1px 2px #111;
 }
 
+/* Sample Form */
+
+#sample-form-div {
+  grid-area: sample-form;
+}
+
 #dropzone-text {
   font-size: 1em;
+  text-align: center;
+}
+
+.dropzone {
+  margin: 0 0 0 160px;
+  position: relative;
+}
+
+#sample-form-div {
+  margin: 10px;
+}
+
+#sample-form h3{
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 1px 2px 2px black;
+  text-align: center;
+  color: lightgrey;
+}
+
+.sample-form-render {
+  text-align: center;
+}
+
+.sample-form-render label{
+  font-size: 15px;
+  text-shadow: 1px 2px 2px black;
+  text-align: center;
+  color: lightgrey;
+}
+
+.sample-form-render .button {
+  background-color: #30261C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  filter: grayscale(70%);
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 0.75s;
+  border-radius: 50px;
+}
+
+.sample-form-render .button:hover{
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
 @media (max-width: 800px) {
@@ -168,10 +225,6 @@ body{
   min-height: 150px;
   padding: 15px;
   position: relative;
-}
-
-#meme-description .meme-edit-form {
-  margin: 30px 0 0 0;
 }
 
 .sample-tile {
@@ -217,8 +270,10 @@ body{
   margin: 30px 0 10px 0;
 }
 
+/* user registration */
+
 #new-user-form{
-  margin: 0 200px 0 200px;
+  margin: 0 450px 0 450px;
   text-align: center;
   color: white;
   font-size: 1em;
@@ -233,7 +288,7 @@ body{
 }
 
 #user_profile_photo{
-  margin: 0 0 20px 320px;
+  margin: 0 0 20px 100px;
   text-align: center;
   color: white;
   font-size: 1em;
@@ -243,5 +298,137 @@ body{
   text-align: center;
   color: white;
   text-shadow: 1px 2px 2px black;
-  margin: 0 0 20px 0
+  margin: 0 0 20px 0;
+}
+
+.new-user-submit-button input{
+  background-color: #30261C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  filter: grayscale(70%);
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 0.75s;
+  border-radius: 50px;
+  margin: 0 0 50px 0;
+}
+
+.new-user-submit-button input:hover{
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+#user_profile_photo input{
+  background-color: #30261C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  filter: grayscale(70%);
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 0.75s;
+  border-radius: 50px;
+}
+
+/* User Login Page */
+
+#user-log-in-form {
+  margin: 0 450px 0 450px;
+  text-align: center;
+  color: white;
+  font-size: 1em;
+}
+
+#user-sign-in-title {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 10px 0 20px 0;
+}
+
+#user-log-in-form label{
+  margin: 0 100px 0 100px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  font-size: 1em;
+}
+
+#devise-link-text {
+  margin: 0 100px 0 100px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  font-size: 1.3em;
+}
+
+#devise-link-text a {
+  color: white;
+}
+
+/* User Forgot Password */
+
+#forgot-your-password {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#forgot-password-form {
+  margin: 0 450px 0 450px;
+  text-align: center;
+  color: white;
+  font-size: 1em;
+}
+
+#forgot-password-form label{
+  margin: 0 100px 0 100px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  font-size: 1em;
+}
+
+#forgot-password-submit input{
+  background-color: #30261C;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  filter: grayscale(70%);
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 0.75s;
+  border-radius: 50px;
+  margin: 0 0 50px 0;
+}
+
+#forgot-password-submit input:hover{
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* User Show Page */
+
+#user-show-title {
+  text-shadow: 1px 2px 2px black;
+  text-align: center;
+  color: lightgrey;
+}
+
+#soundcloud {
+  margin: 700px 0 0 0;
 }

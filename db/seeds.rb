@@ -12,7 +12,8 @@ samples=[
   ["Kick2", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/kick2.mp3"],
   ["Kick3", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/kick3.mp3"],
   ["Kick4", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/kick4.mp3"],
-  ["Kick5", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/kick5.mp3"]
+  ["Kick5", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/kick5.mp3"],
+  ["Hat5", 1, 1, "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/sample_path/20/hat1.mp3"]
 ]
 
 collections.each do |collection|
