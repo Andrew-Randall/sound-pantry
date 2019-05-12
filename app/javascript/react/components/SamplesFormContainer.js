@@ -21,8 +21,6 @@ class SamplesFormContainer extends Component {
   }
 
   handleOnSubmit(event) {
-    event.preventDefault();
-
     let body = new FormData()
     body.append("user_id",this.props.userId)
     body.append("collection_id",this.props.collectionId)
@@ -55,6 +53,8 @@ class SamplesFormContainer extends Component {
   clearForm() {
     this.setState({
       name: "",
+      message: "",
+      file: []
     });
   }
 
@@ -67,36 +67,44 @@ class SamplesFormContainer extends Component {
   };
 
   render() {
+    let sampleForm = <div></div>
+    if (this.props.userId === this.props.creatorId ||
+        this.props.currentUser.role === "admin"
+    ) {
+        sampleForm = <div id="sample-form-div">
+         <h3> Add a Sample </h3>
+          <form
+            onSubmit={this.handleOnSubmit}
+            className="sample-form-render">
+            <TextField
+              type="number"
+              labelName="Sample Name"
+              inputName="name"
+              value={this.state.name}
+              handleOnChange={this.handleOnChange}
+            />
+            <section>
+              <div className="dropzone">
+                <Dropzone onDrop={this.onDrop}>
+                  <p>Try dropping some files here, or click to select files to upload.</p>
+                </Dropzone>
+              </div>
+              <aside>
+                <h3 id="dropzone-text">Dropped files</h3>
+                <ul>
+                  {
+                    this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                  }
+                </ul>
+              </aside>
+            </section>
+            <input type="submit" value="Submit" className="button" />
+          </form>
+        </div>
+      }
     return (
       <div>
-        <form
-          onSubmit={this.handleOnSubmit}
-          className="sample-form-render">
-          <TextField
-            type="number"
-            labelName="name"
-            inputName="name"
-            value={this.state.name}
-            handleOnChange={this.handleOnChange}
-          />
-          <section>
-            <div className="dropzone">
-              <Dropzone onDrop={this.onDrop}>
-                <p>Try dropping some files here, or click to select files to upload.</p>
-              </Dropzone>
-            </div>
-            <aside>
-              <h2 id="dropzone-text">Dropped files</h2>
-              <ul>
-                {
-                  this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-                }
-              </ul>
-            </aside>
-          </section>
-
-          <input type="submit" value="Submit" className="button" />
-        </form>
+        {sampleForm}
       </div>
     );
   }
