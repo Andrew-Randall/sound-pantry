@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Link } from "react-router"
 import SamplesContainer from "./SamplesContainer"
 import SampleTile from "./SampleTile"
+import SamplesFormContainer from "./SamplesFormContainer"
 
 class CollectionShowContainer extends Component {
   constructor(props) {
@@ -53,8 +54,11 @@ class CollectionShowContainer extends Component {
   }
 
   render() {
+    debugger
     let samples
-    if (this.state.samples.length >1){
+    let currentUserId = this.state.currentUser.id
+
+    if (this.state.samples.length >= 0){
         samples = <SamplesContainer
           currentUserId={this.state.currentUser.id}
           collectionId={this.props.params.id}
@@ -76,7 +80,19 @@ class CollectionShowContainer extends Component {
             </p>
           </div>
         </div>
-        {samples}
+        <div>
+          {samples}
+        </div>
+        <div id="sample-form">
+          <SamplesFormContainer
+            collectionId={this.props.params.id}
+            userId={this.state.currentUser.id}
+            addSample={this.addSample}
+            force={this.forceRender}
+            creatorId={this.state.collection.user_id}
+            currentUser={this.state.currentUser}
+          />
+        </div>
       </div>
     )
   }
