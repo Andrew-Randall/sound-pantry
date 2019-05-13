@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-require 'fog-aws'
+require "fog-aws"
+
 
 ruby '2.4.5'
 

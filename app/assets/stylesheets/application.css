@@ -28,8 +28,6 @@ body{
   position: relative;
 }
 
-
-
 .top-bar{
   position: sticky;
   top: 0;
@@ -431,4 +429,59 @@ body{
 
 #soundcloud {
   margin: 700px 0 0 0;
+}
+
+/* Drum Machine */
+
+#gallery-circles {
+  columns: 3 200px;
+  margin: 200px 10vw 0px 16vw;
+  background-color: #2D2D29;
+  height: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 5000;
+}
+
+#gallery-circles div {
+  border: 3px solid #63444a;
+  border-radius: 10px;
+  box-shadow: 4px 4px 6px;
+  filter: grayscale(70%);
+  object-fit: cover;
+}
+
+
+#drum-machine-title {
+  text-align: center;
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#kick-circle {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
+}
+
+#snare-circle {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
+}
+
+#hat-circle {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
 }

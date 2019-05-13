@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :collections, only: [:index, :create, :show, :destroy, :update] do
         resources :samples, only: [:index, :show, :create, :destroy, :update]
       end
+      resources :drums, only: [:index]
       resources :users, only: [:show]
     end
   end
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
     resources :samples, only: [:index, :show, :new]
   end
   resources :users, only: [:show]
+  resources :drums, only: [:index]
 end
