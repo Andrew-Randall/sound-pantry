@@ -54,7 +54,6 @@ class CollectionShowContainer extends Component {
   }
 
   render() {
-    debugger
     let samples
     let currentUserId = this.state.currentUser.id
 

@@ -455,7 +455,8 @@ body{
 #drum-machine-title {
   text-align: center;
   color: white;
-  text-shadow: 1px 2px 2px black;
+  font-family: 'Fredoka One';
+  text-shadow: 3px 5px 5px black;
   margin: 50px 0 20px 0;
 }
 
@@ -484,4 +485,52 @@ body{
   -moz-border-radius: 25px;
   border-radius: 25px;
   background: black;
+}
+
+#kick-title {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#kick-instructions {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#snare-title {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#snare-instructions {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#hat-title {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#hat-instructions {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
 }

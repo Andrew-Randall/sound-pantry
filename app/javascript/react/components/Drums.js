@@ -3,10 +3,6 @@ import { Link } from 'react-router'
 import Tone from 'tone'
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
-const audio = document.querySelector('audio');
-const actx = Tone.context;
-const dest = actx.createMediaStreamDestination();
-
 let kd = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/kick1.mp3").toMaster()
 let hh = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/snare3.mp3").toMaster()
 
