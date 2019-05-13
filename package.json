@@ -11,8 +11,10 @@
     "react": "~15.4.2",
     "react-dom": "~15.4.2",
     "react-dropzone": "~7",
+    "react-keyboard-event-handler": "^1.4.1",
     "react-router": "^3.2.1",
-    "redbox-react": "1.6.0"
+    "redbox-react": "1.6.0",
+    "tone": "^13.4.9"
   },
   "devDependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",

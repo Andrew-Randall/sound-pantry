@@ -2,10 +2,10 @@ require "rails_helper"
 
 DatabaseCleaner.clean_with(:truncation)
 
-RSpec.describe Api::V1::PacksController, type: :controller do
+RSpec.describe Api::V1::CollectionsController, type: :controller do
   let!(:user) { User.create!(email: "andrewrandall1@gmail.com", password: "password", password_confirmation: "password", username: "username", role: "member") };
-  let!(:pack_1) { Pack.create(name: "pack_1", img: "http://boop", description: "This is a pack.", user: user) };
-  let!(:pack_2) { Pack.create(name: "pack_2", img: "http://boop2", description: "This is also a pack.", user: user) };
+  let!(:pack_1) { Collection.create(name: "pack_1", img: "http://boop", description: "This is a pack.", user: user) };
+  let!(:pack_2) { Collection.create(name: "pack_2", img: "http://boop2", description: "This is also a pack.", user: user) };
 
   describe "GET#index" do
     it "returns successful response with json-formatted data" do
@@ -49,7 +49,7 @@ RSpec.describe Api::V1::PacksController, type: :controller do
       sign_in user
       get :show, params: {id: pack_1.id}
       response_json = JSON.parse(response.body)
-      response_json = response_json["pack"]
+      response_json = response_json["collection"]
 
       expect(response_json["name"]).to eq pack_1.name
       expect(response_json["img"]).to eq pack_1.img
