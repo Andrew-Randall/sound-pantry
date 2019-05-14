@@ -21,6 +21,8 @@ class SamplesFormContainer extends Component {
   }
 
   handleOnSubmit(event) {
+    event.preventDefault()
+
     let body = new FormData()
     body.append("user_id",this.props.userId)
     body.append("collection_id",this.props.collectionId)
@@ -48,6 +50,7 @@ class SamplesFormContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
 
     this.clearForm();
+    this.props.force;
   }
 
   clearForm() {
@@ -101,7 +104,8 @@ class SamplesFormContainer extends Component {
             <input type="submit" value="Submit" className="button" />
           </form>
         </div>
-      }
+    }
+
     return (
       <div>
         {sampleForm}

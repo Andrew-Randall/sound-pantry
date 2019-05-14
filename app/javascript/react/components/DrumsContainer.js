@@ -12,7 +12,7 @@ class DrumsContainer extends Component {
 
   render() {
     return(
-      <div>
+      <div id="drum-page">
         <h1 id="drum-machine-title">Drum Machine</h1>
         <DrumsTest
         />

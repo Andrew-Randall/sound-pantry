@@ -13,6 +13,7 @@ class CollectionShowContainer extends Component {
       samples: {},
       currentUser: ""
     }
+    this.forceRender = this.forceRender.bind(this)
   }
 
   componentDidMount() {
@@ -53,6 +54,10 @@ class CollectionShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  forceRender() {
+    setTimeout(function(){this.componentDidMount()}, 3000)
+  }
+
   render() {
     let samples
     let currentUserId = this.state.currentUser.id
@@ -61,7 +66,7 @@ class CollectionShowContainer extends Component {
         samples = <SamplesContainer
           currentUserId={this.state.currentUser.id}
           collectionId={this.props.params.id}
-      />
+        />
     }
     return (
       <div id="show-page">
