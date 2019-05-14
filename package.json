@@ -13,7 +13,9 @@
     "react-dropzone": "~7",
     "react-keyboard-event-handler": "^1.4.1",
     "react-router": "^3.2.1",
-    "redbox-react": "1.6.0",
+    "redbox-react": "1.6.0"
+  },
+  "optionalDependencies": {
     "tone": "^13.4.9"
   },
   "devDependencies": {

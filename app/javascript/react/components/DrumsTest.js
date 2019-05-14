@@ -54,9 +54,9 @@ class Drums extends Component {
 
     let randKickPath = kickPathsArray[Math.floor(Math.random()*kickPathsArray.length)]
 
-    let kd = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/kick1.mp3").toMaster()
+    let kd = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/kick1.mp3").toMaster()
     let sn = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/snare3.mp3").toMaster()
-    let hh = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/hat3.mp3").toMaster()
+    let hh = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/hat2.mp3").toMaster()
 
     kd.autostart = false;
     sn.autostart = false;
