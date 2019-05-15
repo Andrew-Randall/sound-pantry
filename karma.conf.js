@@ -4,7 +4,7 @@ module.exports = function(config) {
   config.set({
     basePath: "",
     // use the PhantomJS browser
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
 
     // use the Jasmine testing framework
     frameworks: ['jasmine'],

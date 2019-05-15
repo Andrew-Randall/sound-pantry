@@ -7,13 +7,11 @@ const SampleTile = props => {
   return (
     <div className="sample-tile">
       <audio id={"player-" + props.id} src={props.path}></audio>
-      <div>
+      <div id="sample-tile">
         {props.name}
-        <button id="player-buttons" onClick={props.play}>Play</button>
-        <button id="player-buttons" onClick={props.pause}>Pause</button>
-        <button id="player-buttons" onClick={props.volumeUp}>Vol+</button>
-        <button id="player-buttons" onClick={props.volumeDown}>Vol-</button>
-        <a id="player-buttons" href={props.path} download={props.name}>Download</a>
+        <button className="player-buttons" onClick={props.play}><FontAwesomeIcon icon="play-circle"/></button>
+        <button className="player-buttons" onClick={props.pause}><FontAwesomeIcon icon="pause"/></button>
+        <a className="player-buttons" href={props.path} download={props.name}><FontAwesomeIcon icon="download"/></a>
       </div>
     </div>
   )

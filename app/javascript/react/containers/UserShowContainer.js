@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router"
-import CollectionTile from './CollectionTile'
+import CollectionTile from '../components/CollectionTile'
 
 class UserShowContainer extends Component {
   constructor(props) {

@@ -7,10 +7,7 @@ class Api::V1::CollectionsController < ApplicationController
   end
 
   def show
-    collection = Collection.find(params[:id])
-    creator = User.find(collection.user_id)
-    user = user_signed_in
-    render json: {collection: collection, creator: creator, current_user: user, samples: collection.samples}
+    render json: Collection.find(params[:id]), include: ["samples"]
   end
 
   def create

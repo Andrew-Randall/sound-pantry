@@ -44,6 +44,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'aws-sdk', '~>2.3.0'
 gem 'figaro'
 
+gem "active_model_serializers"
 
 gem "fog"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

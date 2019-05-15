@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TextField from './TextField'
+import TextField from '../components/TextField'
 
 class CollectionsFormContainer extends Component {
   constructor(props) {
