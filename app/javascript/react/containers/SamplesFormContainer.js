@@ -31,8 +31,7 @@ class SamplesFormContainer extends Component {
 
     debugger
     let payload = {
-        name: this.state.name,
-        file: this.state.file[0]
+        body: body
     }
 
     this.props.onSubmit(payload)

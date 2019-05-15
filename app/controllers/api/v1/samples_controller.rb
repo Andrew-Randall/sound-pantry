@@ -9,7 +9,7 @@ class Api::V1::SamplesController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    user = current_user
     collection = Collection.find(params[:collection_id])
     name = params[:name]
     path = params[:sample_path]

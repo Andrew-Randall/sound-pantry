@@ -53,7 +53,7 @@ class CollectionShowContainer extends Component {
   }
 
   onSubmit(payload) {
-    fetch(`/api/v1/samples/${this.collectionId}/samples`, {
+    fetch(`/api/v1/collections/${this.collectionId}/samples`, {
       credentials: "same-origin",
       method: "POST",
       body: JSON.stringify(payload)
