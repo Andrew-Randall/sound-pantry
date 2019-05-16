@@ -13,6 +13,7 @@ class CollectionShowContainer extends Component {
       samples: [],
       currentUser: ""
     }
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -53,10 +54,11 @@ class CollectionShowContainer extends Component {
   }
 
   onSubmit(payload) {
-    fetch(`/api/v1/collections/${this.collectionId}/samples`, {
+    let collectionId = this.props.params.id
+    fetch(`/api/v1/collections/${collectionId}/samples`, {
       credentials: "same-origin",
       method: "POST",
-      body: JSON.stringify(payload)
+      body: payload
     })
     .then(response => {
       if (response.ok) {
@@ -69,6 +71,7 @@ class CollectionShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      debugger
       this.setState({ samples: this.state.samples.concat(body.sample) });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
