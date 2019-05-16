@@ -29,6 +29,8 @@ class SamplesFormContainer extends Component {
     body.append("name",this.state.name)
     body.append("sample_path",this.state.file[0])
 
+    debugger
+
     fetch(`/api/v1/collections/${this.props.collectionId}/samples`, {
       credentials: "same-origin",
       method: "POST",
