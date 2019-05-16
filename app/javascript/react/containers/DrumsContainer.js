@@ -8,8 +8,14 @@ class DrumsContainer extends Component {
     this.state={
       kicks: [],
       snares: [],
-      hats: []
+      hats: [],
+      kick: "",
+      snare: "",
+      hat: ""
     }
+    this.handleKickSelect = this.handleKickSelect.bind(this)
+    this.handleHatSelect = this.handleHatSelect.bind(this)
+    this.handleSnareSelect = this.handleSnareSelect.bind(this)
   }
 
   componentDidMount() {
@@ -32,32 +38,67 @@ class DrumsContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({kicks: body.kickSamples, snares: body.snareSamples, hats: body.hatSamples})
+      this.setState({kicks: body.kicks, snares: body.snares, hats: body.hats})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  handleOnSubmit(){
+  handleKickSelect(event){
+    this.setState({kick: event.target.value})
+  }
 
+  handleSnareSelect(event){
+    this.setState({snare: event.target.value})
+  }
+
+  handleHatSelect(event){
+    this.setState({hat: event.target.value})
   }
 
   render() {
-    debugger
     let kicks = this.state.kicks
+    let kickPathsArray = []
+    kicks.forEach(kick => {
+      kickPathsArray.push(<option value={kick.path}>{kick.name}</option>)
+    })
+
+    let snares = this.state.snares
+    let snarePathsArray = []
+    snares.forEach(snare => {
+      snarePathsArray.push(<option value={snare.path}>{snare.name}</option>)
+    })
+
+    let hats = this.state.hats
+    let hatPathsArray = []
+    hats.forEach(hat => {
+      hatPathsArray.push(<option value={hat.path}>{hat.name}</option>)
+    })
 
     return(
       <div id="drum-page">
         <h1 id="drum-machine-title">Drum Machine</h1>
-        <form onSubmit={this.handleOnSubmit}>
-          <select name = "kicks">
-            {kicks.map(kick => {
-              return (<option value="sup">sup</option>)
-            })}
-          </select>
-          <input type ="submit" className="button" value="Submit"/>
-        </form>
         <Drums
+          kick={this.state.kick}
+          hat={this.state.hat}
+          snare={this.state.snare}
         />
+        <div id="forms-container">
+          <form id="kick-form">
+            <select onChange={this.handleKickSelect}>
+              {kickPathsArray}
+            </select>
+          </form>
+          <form id="snare-form">
+            <select onChange={this.handleSnareSelect}>
+              {snarePathsArray}
+            </select>
+          </form>
+          <form id="hat-form">
+            <select onChange={this.handleHatSelect}>
+              {hatPathsArray}
+            </select>
+          </form>
+        </div>
       </div>
     )
   }

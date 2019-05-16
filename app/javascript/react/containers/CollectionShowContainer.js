@@ -71,7 +71,6 @@ class CollectionShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({ samples: this.state.samples.concat(body.sample) });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));

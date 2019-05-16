@@ -47,9 +47,9 @@ class Drums extends Component {
       }
     )
 
-    let kd = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/kick1.mp3").toMaster()
-    let sn = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/snare3.mp3").toMaster()
-    let hh = new Tone.Player("https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/hat2.mp3").toMaster()
+    let kd = new Tone.Player(this.props.kick).toMaster()
+    let sn = new Tone.Player(this.props.snare).toMaster()
+    let hh = new Tone.Player(this.props.hat).toMaster()
 
     kd.autostart = false;
     sn.autostart = false;

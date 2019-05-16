@@ -16,8 +16,6 @@ class Api::V1::SamplesController < ApplicationController
     sampleId = Sample.last.id + 1
     pathHelper = path.original_filename
 
-
-
     sample = Sample.new(user_id: user.id, collection_id: collection.id, name: name, path: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/#{pathHelper}", sample_path: path)
     if sample.save
       render json: { sample: sample }
