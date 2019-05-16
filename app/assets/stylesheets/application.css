@@ -462,6 +462,8 @@ body{
   position: relative;
   top: 0;
   bottom: 0;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 #gallery-circles div {
@@ -512,6 +514,33 @@ body{
   background: black;
 }
 
+#percussion-circle {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
+}
+
+#percussion-circle-2 {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
+}
+
+#percussion-circle-3 {
+  width: 300px;
+  height: 300px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: black;
+}
+
 #kick-title {
   text-align: center;
   font-family: 'Bree Serif';
@@ -553,6 +582,54 @@ body{
 }
 
 #hat-instructions {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-title {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-instructions {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-title-2 {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-instructions-2 {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-title-3 {
+  text-align: center;
+  font-family: 'Bree Serif';
+  color: white;
+  text-shadow: 1px 2px 2px black;
+  margin: 50px 0 20px 0;
+}
+
+#percussion-instructions-3 {
   text-align: center;
   font-family: 'Bree Serif';
   color: white;

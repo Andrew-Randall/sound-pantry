@@ -44,7 +44,7 @@ class CollectionShowContainer extends Component {
       if (body.collection.currentUser === null) {
         body.collection.currentUser = noUser;
       }
-      this.setState({ collection: body.collection, creator: body.collection.user_id, currentUser: body.collection.currentUser, samples: body.collection.samples })
+      this.setState({ collection: body.collection, creator: body.collection.creator, currentUser: body.collection.currentUser, samples: body.collection.samples })
       return this.state
     })
     .then(stateFul => {

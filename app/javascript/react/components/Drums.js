@@ -10,13 +10,20 @@ class Drums extends Component {
       kicks: [],
       snares: [],
       hats: [],
+      percs: [],
       kick: "",
       snare: "",
-      hat: ""
+      hat: "",
+      perc1: "",
+      perc2: "",
+      perc3: ""
     }
     this.handleKickSelect = this.handleKickSelect.bind(this)
     this.handleHatSelect = this.handleHatSelect.bind(this)
     this.handleSnareSelect = this.handleSnareSelect.bind(this)
+    this.handlePercSelect = this.handlePercSelect.bind(this)
+    this.handlePerc2Select = this.handlePerc2Select.bind(this)
+    this.handlePerc3Select = this.handlePerc3Select.bind(this)
   }
 
   componentDidMount() {
@@ -39,7 +46,7 @@ class Drums extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({kicks: body.kicks, snares: body.snares, hats: body.hats})
+      this.setState({kicks: body.kicks, snares: body.snares, hats: body.hats, percs: body.percs})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
@@ -54,6 +61,18 @@ class Drums extends Component {
 
   handleHatSelect(event){
     this.setState({hat: event.target.value})
+  }
+
+  handlePercSelect(event){
+    this.setState({perc1: event.target.value})
+  }
+
+  handlePerc2Select(event){
+    this.setState({perc2: event.target.value})
+  }
+
+  handlePerc3Select(event){
+    this.setState({perc3: event.target.value})
   }
 
   render(){
@@ -83,13 +102,23 @@ class Drums extends Component {
       hatPathsArray.push(<option value={hat.path}>{hat.name}</option>)
     })
 
+    let percs = this.state.percs
+    let percPathsArray = []
+    percs.forEach(perc => {
+      percPathsArray.push(<option value={perc.path}>{perc.name}</option>)
+    })
+
     let kd = new Tone.Player(this.state.kick).toMaster()
     let sn = new Tone.Player(this.state.snare).toMaster()
     let hh = new Tone.Player(this.state.hat).toMaster()
+    let p1 = new Tone.Player(this.state.perc1).toMaster()
+    let p2 = new Tone.Player(this.state.perc2).toMaster()
+    let p3 = new Tone.Player(this.state.perc3).toMaster()
 
     kd.autostart = false;
     sn.autostart = false;
     hh.autostart = false;
+    p1.autostart = false;
 
     let colorsArray = ["#1D2E4C", "#1A5D65", "#3C8E77", "#75616B", "#BFCFF7", "#0B0E31", "#7F9CA0", "#556270", "#480048", "#4A403D", "#99B2B7", "#373737", "#292C37"]
 
@@ -114,6 +143,27 @@ class Drums extends Component {
       document.getElementById("hat-circle").style.backgroundColor = color
     }
 
+    function playPerc1(){
+      let color = colorsArray[Math.floor(Math.random()*colorsArray.length)]
+
+      p1.start()
+      document.getElementById("percussion-circle").style.backgroundColor = color
+    }
+
+    function playPerc2(){
+      let color = colorsArray[Math.floor(Math.random()*colorsArray.length)]
+
+      p2.start()
+      document.getElementById("percussion-circle-2").style.backgroundColor = color
+    }
+
+    function playPerc3(){
+      let color = colorsArray[Math.floor(Math.random()*colorsArray.length)]
+
+      p3.start()
+      document.getElementById("percussion-circle-3").style.backgroundColor = color
+    }
+
     return(
       <div id="drum-page">
         <h1 id="drum-machine-title">Drum Machine</h1>
@@ -130,6 +180,18 @@ class Drums extends Component {
             <KeyboardEventHandler
               handleKeys={['g']}
               onKeyEvent={playHat}
+            />
+            <KeyboardEventHandler
+              handleKeys={['w']}
+              onKeyEvent={playPerc1}
+            />
+            <KeyboardEventHandler
+              handleKeys={['y']}
+              onKeyEvent={playPerc2}
+            />
+            <KeyboardEventHandler
+              handleKeys={['j']}
+              onKeyEvent={playPerc3}
             />
           </div>
             <div id="gallery-circles">
@@ -157,6 +219,35 @@ class Drums extends Component {
                 <form id="hat-form">
                   <select onChange={this.handleHatSelect}>
                     {hatPathsArray}
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div id="gallery-circles">
+              <div id="percussion-circle">
+                <h2 id="percussion-title">PERCUSSION 1</h2>
+                <h3 id="percussion-instructions">(press 'w' key)</h3>
+                <form id="percussion-form">
+                  <select onChange={this.handlePercSelect}>
+                    {percPathsArray}
+                  </select>
+                </form>
+              </div>
+              <div id="percussion-circle-2">
+                <h2 id="percussion-title-2">PERCUSSION 2</h2>
+                <h3 id="percussion-instructions-2">(press 'y' key)</h3>
+                <form id="percussion-form-2">
+                  <select onChange={this.handlePerc2Select}>
+                    {percPathsArray}
+                  </select>
+                </form>
+              </div>
+              <div id="percussion-circle-3">
+                <h2 id="percussion-title-3">PERCUSSION 3</h2>
+                <h3 id="percussion-instructions-3">(press 'j' key)</h3>
+                <form id="percussion-form-3">
+                  <select onChange={this.handlePerc3Select}>
+                    {percPathsArray}
                   </select>
                 </form>
               </div>
