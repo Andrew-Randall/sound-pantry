@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import CollectionTile from './CollectionTile'
+import CollectionTile from '../components/CollectionTile'
 
 class CollectionsContainer extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class CollectionsContainer extends Component {
       })
     .then(response => response.json())
     .then(body => {
-      this.setState({collections: body})
+      this.setState({collections: body.collections})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

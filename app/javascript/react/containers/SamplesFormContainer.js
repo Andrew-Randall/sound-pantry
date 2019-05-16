@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Dropzone from 'react-dropzone';
-import TextField from "./TextField";
+import TextField from "../components/TextField";
 
 class SamplesFormContainer extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class SamplesFormContainer extends Component {
       file: []
     };
     this.handleOnChange = this.handleOnChange.bind(this)
-    this.handleOnSubmit = this.handleOnSubmit.bind(this)
+    this.passPayload = this.passPayload.bind(this)
     this.onDrop = this.onDrop.bind(this)
   }
 
@@ -20,7 +20,7 @@ class SamplesFormContainer extends Component {
     this.setState({ [event.target.name]: newSample })
   }
 
-  handleOnSubmit(event) {
+  passPayload(event) {
     event.preventDefault()
 
     let body = new FormData()
@@ -29,36 +29,13 @@ class SamplesFormContainer extends Component {
     body.append("name",this.state.name)
     body.append("sample_path",this.state.file[0])
 
-    fetch(`/api/v1/collections/${this.props.collectionId}/samples`, {
-      credentials: "same-origin",
-      method: "POST",
-      body: body
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw error;
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({ message: body.message });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    let payload = body
 
-    this.clearForm();
-    this.props.force;
-  }
-
-  clearForm() {
+    this.props.onSubmit(payload)
     this.setState({
       name: "",
-      message: "",
       file: []
-    });
+    })
   }
 
   onDrop(file) {
@@ -77,7 +54,7 @@ class SamplesFormContainer extends Component {
         sampleForm = <div id="sample-form-div">
          <h3> Add a Sample </h3>
           <form
-            onSubmit={this.handleOnSubmit}
+            onSubmit={this.passPayload}
             className="sample-form-render">
             <TextField
               type="number"
