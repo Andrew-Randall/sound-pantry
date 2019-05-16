@@ -11,12 +11,12 @@ class Drums extends Component {
       snares: [],
       hats: [],
       percs: [],
-      kick: "",
-      snare: "",
-      hat: "",
-      perc1: "",
-      perc2: "",
-      perc3: ""
+      kick: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/kick1.mp3",
+      snare: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/snare3.mp3",
+      hat: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/hat1.mp3",
+      perc1: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/percussion1.wav",
+      perc2: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/percussion2.wav",
+      perc3: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/percussion3.wav"
     }
     this.handleKickSelect = this.handleKickSelect.bind(this)
     this.handleHatSelect = this.handleHatSelect.bind(this)
