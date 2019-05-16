@@ -147,13 +147,9 @@ body{
   grid-area: sample-form;
 }
 
-#dropzone-text {
-  font-size: 1em;
-  text-align: center;
-}
 
 .dropzone {
-  margin: 0 0 0 160px;
+  margin: 0 0 0 14vw;
   position: relative;
 }
 
@@ -163,10 +159,16 @@ body{
 
 #sample-form h3{
   text-align: center;
+  font-size: 30px;
+  text-shadow: 3px 4px 4px black;
+  color: white;
+}
+
+#dropzone-text {
   font-size: 20px;
-  text-shadow: 1px 2px 2px black;
   text-align: center;
-  color: lightgrey;
+  color: white;
+  text-shadow: 3px 4px 4px black;
 }
 
 .sample-form-render {
@@ -174,10 +176,10 @@ body{
 }
 
 .sample-form-render label{
-  font-size: 15px;
-  text-shadow: 1px 2px 2px black;
+  font-size: 18px;
+  text-shadow: 3px 4px 4px black;
   text-align: center;
-  color: lightgrey;
+  color: white;
 }
 
 .sample-form-render .button {
@@ -447,15 +449,19 @@ body{
 }
 
 /* Drum Machine */
+#drum-page {
+  position: absolute;
+  margin: 0 400px 0 400px;
+}
 
 #gallery-circles {
   columns: 3 200px;
-  margin: 20px 10vw 0px 16vw;
+  text-align: center;
   background-color: #2D2D29;
   height: 90%;
   position: relative;
   top: 0;
-  bottom: 5000;
+  bottom: 0;
 }
 
 #gallery-circles div {
@@ -464,11 +470,11 @@ body{
   box-shadow: 4px 4px 6px;
   filter: grayscale(70%);
   object-fit: cover;
-  position: relative;
   box-shadow:
       inset 60px 0 120px #0D6759,  /* left magenta */
       inset -60px 0 120px #452B72;
 }
+
 
 #drum-machine-title {
   text-align: center;
@@ -476,7 +482,7 @@ body{
   font-family: 'Fredoka One';
   text-shadow: 3px 5px 5px black;
   position: relative;
-  margin: 10px;
+  margin: 3vw 0px 1vw 0px;
 }
 
 #kick-circle {
@@ -554,20 +560,7 @@ body{
   margin: 50px 0 20px 0;
 }
 
-#forms-container {
-  display: grid;
-  grid-column-gap: 20px;
-  grid-template-columns: 33% 33% 34%;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "kick-form snare-form hat-form";
-  text-align: center;
-  padding: 10px;
-  margin: 80px 18vw 0px 18vw;
-  position: relative;
-}
-
-#forms-container select {
+#gallery-circles select {
   background-color: #30261C;
   border-radius: 40px;
   border-color: white;

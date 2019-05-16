@@ -4,7 +4,7 @@ import CollectionsContainer from '../containers/CollectionsContainer'
 import CollectionShowContainer from '../containers/CollectionShowContainer'
 import UserShowContainer from '../containers/UserShowContainer'
 import CollectionsFormContainer from '../containers/CollectionsFormContainer'
-import DrumsContainer from '../containers/DrumsContainer'
+import Drums from './Drums'
 
 
 export const App = (props) => {
@@ -17,7 +17,7 @@ export const App = (props) => {
           <Route path='/collections/new' component={CollectionsFormContainer} />
           <Route path='/collections/:id' component={CollectionShowContainer} />
           <Route path='/users/:id' component={UserShowContainer} />
-          <Route path='/drums' component={DrumsContainer} />
+          <Route path='/drums' component={Drums} />
         </Route>
       </Router>
     </div>

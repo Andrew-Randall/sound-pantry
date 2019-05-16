@@ -9,8 +9,14 @@ class Drums extends Component {
     this.state={
       kicks: [],
       snares: [],
-      hats: []
+      hats: [],
+      kick: "",
+      snare: "",
+      hat: ""
     }
+    this.handleKickSelect = this.handleKickSelect.bind(this)
+    this.handleHatSelect = this.handleHatSelect.bind(this)
+    this.handleSnareSelect = this.handleSnareSelect.bind(this)
   }
 
   componentDidMount() {
@@ -33,9 +39,21 @@ class Drums extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      ({kicks: body.kickSamples, snares: body.snareSamples, hats: body.hatSamples})
+      this.setState({kicks: body.kicks, snares: body.snares, hats: body.hats})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  handleKickSelect(event){
+    this.setState({kick: event.target.value})
+  }
+
+  handleSnareSelect(event){
+    this.setState({snare: event.target.value})
+  }
+
+  handleHatSelect(event){
+    this.setState({hat: event.target.value})
   }
 
   render(){
@@ -47,9 +65,27 @@ class Drums extends Component {
       }
     )
 
-    let kd = new Tone.Player(this.props.kick).toMaster()
-    let sn = new Tone.Player(this.props.snare).toMaster()
-    let hh = new Tone.Player(this.props.hat).toMaster()
+    let kicks = this.state.kicks
+    let kickPathsArray = []
+    kicks.forEach(kick => {
+      kickPathsArray.push(<option value={kick.path}>{kick.name}</option>)
+    })
+
+    let snares = this.state.snares
+    let snarePathsArray = []
+    snares.forEach(snare => {
+      snarePathsArray.push(<option value={snare.path}>{snare.name}</option>)
+    })
+
+    let hats = this.state.hats
+    let hatPathsArray = []
+    hats.forEach(hat => {
+      hatPathsArray.push(<option value={hat.path}>{hat.name}</option>)
+    })
+
+    let kd = new Tone.Player(this.state.kick).toMaster()
+    let sn = new Tone.Player(this.state.snare).toMaster()
+    let hh = new Tone.Player(this.state.hat).toMaster()
 
     kd.autostart = false;
     sn.autostart = false;
@@ -79,35 +115,53 @@ class Drums extends Component {
     }
 
     return(
-      <div id="drums-section">
-        <div>
-          <KeyboardEventHandler
-            handleKeys={['a']}
-            onKeyEvent={playKick}
-          />
-          <KeyboardEventHandler
-            handleKeys={['d']}
-            onKeyEvent={playSnare}
-          />
-          <KeyboardEventHandler
-            handleKeys={['g']}
-            onKeyEvent={playHat}
-          />
-        </div>
-          <div id="gallery-circles">
-            <div id="kick-circle">
-              <h2 id="kick-title">KICK</h2>
-              <h3 id="kick-instructions">(press 'a' key)</h3>
-            </div>
-            <div id="snare-circle">
-              <h2 id="snare-title">SNARE</h2>
-              <h3 id="snare-instructions">(press 'd' key)</h3>
-            </div>
-            <div id="hat-circle">
-              <h2 id="hat-title">HAT</h2>
-              <h3 id="hat-instructions">(press 'g' key)</h3>
-            </div>
+      <div id="drum-page">
+        <h1 id="drum-machine-title">Drum Machine</h1>
+        <div id="drums-section">
+          <div>
+            <KeyboardEventHandler
+              handleKeys={['a']}
+              onKeyEvent={playKick}
+            />
+            <KeyboardEventHandler
+              handleKeys={['d']}
+              onKeyEvent={playSnare}
+            />
+            <KeyboardEventHandler
+              handleKeys={['g']}
+              onKeyEvent={playHat}
+            />
           </div>
+            <div id="gallery-circles">
+              <div id="kick-circle">
+                <h2 id="kick-title">KICK</h2>
+                <h3 id="kick-instructions">(press 'a' key)</h3>
+                <form id="kick-form">
+                  <select onChange={this.handleKickSelect}>
+                    {kickPathsArray}
+                  </select>
+                </form>
+              </div>
+              <div id="snare-circle">
+                <h2 id="snare-title">SNARE</h2>
+                <h3 id="snare-instructions">(press 'd' key)</h3>
+                <form id="snare-form">
+                  <select onChange={this.handleSnareSelect}>
+                    {snarePathsArray}
+                  </select>
+                </form>
+              </div>
+              <div id="hat-circle">
+                <h2 id="hat-title">HAT</h2>
+                <h3 id="hat-instructions">(press 'g' key)</h3>
+                <form id="hat-form">
+                  <select onChange={this.handleHatSelect}>
+                    {hatPathsArray}
+                  </select>
+                </form>
+              </div>
+            </div>
+        </div>
       </div>
     )
   }

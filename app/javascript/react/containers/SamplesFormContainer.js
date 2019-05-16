@@ -70,7 +70,7 @@ class SamplesFormContainer extends Component {
                 </Dropzone>
               </div>
               <aside>
-                <h3 id="dropzone-text">Dropped files</h3>
+                <h4 id="dropzone-text">Dropped files</h4>
                 <ul>
                   {
                     this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
