@@ -9,12 +9,14 @@ class Api::V1::SamplesController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
+    user = current_user
     collection = Collection.find(params[:collection_id])
     name = params[:name]
     path = params[:sample_path]
     sampleId = Sample.last.id + 1
     pathHelper = path.original_filename
+
+
 
     sample = Sample.new(user_id: user.id, collection_id: collection.id, name: name, path: "https://sound-pantry-dev.s3.amazonaws.com/uploads/sample/#{pathHelper}", sample_path: path)
     if sample.save
@@ -24,10 +26,4 @@ class Api::V1::SamplesController < ApplicationController
         status: :unprocessable_entity
     end
   end
-
-  private
-  #
-  # def sample_params
-  #   params.require(:sample).permit(:user_id, :pack_id, :name, :path)
-  # end
 end
