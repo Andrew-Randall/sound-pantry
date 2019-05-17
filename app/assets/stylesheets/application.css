@@ -47,7 +47,7 @@ body{
 
  #gallery {
    columns: 3 200px;
-   margin: 50px 10vw 0px 10vw;
+   margin: 50px 12vw 0px 12vw;
    background-color: #2D2D29;
    height: 100%;
    position: absolute;
@@ -72,7 +72,7 @@ body{
 
  #gallery-user {
    columns: 3 200px;
-   margin: 150px 10vw 0px 10vw;
+   margin: 150px 16vw 0px 16vw;
    background-color: #2D2D29;
    height: 90%;
    position: absolute;
@@ -158,9 +158,12 @@ body{
   grid-area: sample-form;
 }
 
+#zone-div {
+  text-align: center;
+}
 
 .dropzone {
-  margin: 0 0 0 12vw;
+  margin: 0 10vw 0 12.5vw;
   position: relative;
 }
 
@@ -462,7 +465,7 @@ body{
 /* Drum Machine */
 #drum-page {
   position: absolute;
-  margin: 0 100px 0 200px;
+  margin: 0 10vw 0 16vw;
 }
 
 #gallery-circles {
@@ -662,4 +665,9 @@ body{
   object-fit: cover;
   opacity: 0.85;
   transition: 0.75s;
+  width: 15vw;
+}
+
+select {
+  text-align: center;
 }
