@@ -3,14 +3,14 @@ require "rails_helper"
 DatabaseCleaner.clean_with(:truncation)
 
 RSpec.describe Api::V1::CollectionsController, type: :controller do
-  let!(:user) { User.create!(email: "andrewrandall1@gmail.com", password: "password", password_confirmation: "password", username: "username", role: "member") };
-  let!(:pack_1) { Collection.create(name: "pack_1", img: "http://boop", description: "This is a pack.", user: user) };
-  let!(:pack_2) { Collection.create(name: "pack_2", img: "http://boop2", description: "This is also a pack.", user: user) };
+  let!(:user) { User.create(email: "test@gmail.com", password: "password", password_confirmation: "password", username: "username", role: "member") };
+  let!(:pack_1) { Collection.create(name: "pack_1", img: "http://boop.com", description: "This is a pack.", user: user) };
+  let!(:pack_2) { Collection.create(name: "pack_2", img: "http://boop2.com", description: "This is also a pack.", user: user) };
 
   describe "GET#index" do
     it "returns successful response with json-formatted data" do
       get :index
-
+      binding.pry
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
     end
@@ -23,15 +23,15 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
 
-      expect(response_json.length).to eq 2
-      expect(response_json[0]["name"]).to eq pack_1.name
-      expect(response_json[1]["name"]).to eq pack_2.name
-      expect(response_json[0]["img"]).to eq pack_1.img
-      expect(response_json[1]["img"]).to eq pack_2.img
-      expect(response_json[0]["description"]).to eq pack_1.description
-      expect(response_json[1]["description"]).to eq pack_2.description
-      expect(response_json[0]["user_id"]).to eq user.id
-      expect(response_json[1]["user_id"]).to eq user.id
+      expect(response_json["collections"].length).to eq 2
+      expect(response_json["collections"][0]["name"]).to eq pack_1.name
+      expect(response_json["collections"][1]["name"]).to eq pack_2.name
+      expect(response_json["collections"][0]["img"]).to eq pack_1.img
+      expect(response_json["collections"][1]["img"]).to eq pack_2.img
+      expect(response_json["collections"][0]["description"]).to eq pack_1.description
+      expect(response_json["collections"][1]["description"]).to eq pack_2.description
+      expect(response_json["collections"][0]["user_id"]).to eq user.id
+      expect(response_json["collections"][1]["user_id"]).to eq user.id
     end
   end
 
