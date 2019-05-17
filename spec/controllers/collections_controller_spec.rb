@@ -10,7 +10,6 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
   describe "GET#index" do
     it "returns successful response with json-formatted data" do
       get :index
-      binding.pry
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
     end
