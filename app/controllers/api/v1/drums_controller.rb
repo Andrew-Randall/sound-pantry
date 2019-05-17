@@ -11,6 +11,9 @@ class Api::V1::DrumsController < ApplicationController
     hatsCollection = Collection.find_by(name: "Hi-Hats")
     hatSamples = hatsCollection.samples
 
-    render json: {kicks: kickSamples, snares: snareSamples, hats: hatSamples }
+    percsCollection = Collection.find_by(name: "Percussion")
+    percSamples = percsCollection.samples
+
+    render json: {kicks: kickSamples, snares: snareSamples, hats: hatSamples, percs: percSamples }
   end
 end
