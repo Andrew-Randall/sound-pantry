@@ -10,11 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require foundation_and_overrides
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
 
  */
+
+
 
 *{
   margin: 0;
@@ -33,6 +35,8 @@ body{
   top: 0;
   z-index: 100;
   height: 50px;
+  opacity: 0.8;
+  background-color: black;
 }
 
 .top-bar h1 {
@@ -40,14 +44,31 @@ body{
   font-size: 2em;
 }
 
-.top-bar link {
-  font-family: 'Ubuntu';
-  font-size: 2em;
+.top-bar a {
+  color: black;
+  background-color: black;
+  height: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: black;
+  font-size: 15px;
+}
+
+#nav a:hover {
+  color: black;
 }
 
  #gallery {
    columns: 3 200px;
-   margin: 50px 12vw 0px 12vw;
+   margin: 50px 16vw 0px 16vw;
    background-color: #2D2D29;
    height: 100%;
    position: absolute;
@@ -72,7 +93,7 @@ body{
 
  #gallery-user {
    columns: 3 200px;
-   margin: 150px 16vw 0px 16vw;
+   margin: 150px 18vw 0px 18vw;
    background-color: #2D2D29;
    height: 90%;
    position: absolute;
