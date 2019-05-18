@@ -69,14 +69,16 @@ class SamplesFormContainer extends Component {
                   <p>Try dropping some files here, or click to select files to upload.</p>
                 </Dropzone>
               </div>
-              <aside>
-                <h4 id="dropzone-text">Dropped files</h4>
-                <ul>
-                  {
-                    this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-                  }
-                </ul>
-              </aside>
+              <div id="zone-div">
+                <aside>
+                  <h4 id="dropzone-text">Dropped files</h4>
+                  <ul>
+                    {
+                      this.state.file.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                    }
+                  </ul>
+                </aside>
+              </div>
             </section>
             <input type="submit" value="Submit" className="button" />
           </form>
