@@ -72,7 +72,7 @@
 
   #gallery {
    columns: 3 10vw;
-   margin: 70px 16vw 0px 16vw;
+   margin: 3.6vw 16vw 0px 16vw;
    background-color: #2D2D29;
    height: 100%;
    position: absolute;
@@ -503,14 +503,54 @@
     border: 3px solid #63444a;
     border-radius: 10px;
     box-shadow: 4px 4px 6px;
-    filter: grayscale(70%);
+    filter: grayscale(50%);
     object-fit: cover;
     box-shadow:
         inset 60px 0 120px #0D6759,
         inset -60px 0 120px #452B72;
   }
 
-  .drum-tile {
+  #kick-circle {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #snare-circle {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #hat-circle {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #percussion-circle {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #percussion-circle-2 {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #percussion-circle-3 {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;

@@ -195,7 +195,7 @@ class Drums extends Component {
             />
           </div>
             <div id="gallery-circles">
-              <div className="drum-tile">
+              <div id="kick-circle">
                 <h2>KICK</h2>
                 <h3>(press 'a' key)</h3>
                 <form id="kick-form">
@@ -204,7 +204,7 @@ class Drums extends Component {
                   </select>
                 </form>
               </div>
-              <div className="drum-tile">
+              <div id="snare-circle">
                 <h2>SNARE</h2>
                 <h3>(press 'd' key)</h3>
                 <form id="snare-form">
@@ -213,7 +213,7 @@ class Drums extends Component {
                   </select>
                 </form>
               </div>
-              <div className="drum-tile">
+              <div id="hat-circle">
                 <h2>HAT</h2>
                 <h3>(press 'g' key)</h3>
                 <form id="hat-form">
@@ -224,7 +224,7 @@ class Drums extends Component {
               </div>
             </div>
             <div id="gallery-circles">
-              <div className="drum-tile">
+              <div id="percussion-circle">
                 <h2>PERCUSSION 1</h2>
                 <h3>(press 'w' key)</h3>
                 <form id="percussion-form">
@@ -233,7 +233,7 @@ class Drums extends Component {
                   </select>
                 </form>
               </div>
-              <div className="drum-tile">
+              <div id="percussion-circle-2">
                 <h2>PERCUSSION 2</h2>
                 <h3>(press 'y' key)</h3>
                 <form id="percussion-form-2">
@@ -242,7 +242,7 @@ class Drums extends Component {
                   </select>
                 </form>
               </div>
-              <div className="drum-tile">
+              <div id="percussion-circle-3">
                 <h2>PERCUSSION 3</h2>
                 <h3>(press 'j' key)</h3>
                 <form id="percussion-form-3">
