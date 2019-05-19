@@ -17,66 +17,70 @@
  */
 
 
+@media (min-width:600px) {
+  *{
+    margin: 0;
+    padding: 0;
+  }
 
-*{
-  margin: 0;
-  padding: 0;
-}
+  body{
+    background-image: url("https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+  }
 
-body{
-  background-image: url("https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
-}
+   /* Top Bar */
 
-.top-bar{
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 50px;
-  opacity: 0.8;
-  background-color: black;
-}
+  .top-bar{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 50px;
+    opacity: 0.8;
+    background-color: black;
+  }
 
-.top-bar h1 {
-  font-family: 'Ubuntu';
-  font-size: 2em;
-}
+  .top-bar h1 {
+    font-family: 'Ubuntu';
+    font-size: 2em;
+  }
 
-.top-bar a {
-  color: black;
-  background-color: black;
-  height: 50px;
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.5s;
-  opacity: 1;
-}
+  .top-bar a {
+    color: black;
+    background-color: black;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    opacity: 1;
+  }
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background-color: black;
-  font-size: 15px;
-}
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background-color: black;
+    font-size: 15px;
+  }
 
-#nav a:hover {
-  color: black;
-}
+  #nav a:hover {
+    color: black;
+  }
 
- #gallery {
-   columns: 3 200px;
-   margin: 50px 16vw 0px 16vw;
+  /* Index Page */
+
+  #gallery {
+   columns: 3 10vw;
+   margin: 70px 16vw 0px 16vw;
    background-color: #2D2D29;
    height: 100%;
    position: absolute;
    top: 0;
    bottom: 0;
- }
+  }
 
- #gallery img {
+  #gallery img {
    border: 3px solid #63444a;
    border-radius: 10px;
    box-shadow: 4px 4px 6px;
@@ -84,14 +88,24 @@ body{
    object-fit: cover;
    opacity: 0.6;
    transition: 0.75s;
- }
+  }
 
- #gallery img:hover {
+  #gallery img:hover {
    filter: grayscale(0%);
    opacity: 1;
- }
+  }
 
- #gallery-user {
+  /* User Show Page */
+
+  #user-show-title {
+    text-shadow: 3px 5px 5px black;
+    text-align: center;
+    color: white;
+    font-family: 'Fredoka One';
+    margin: 20px 0 0 0;
+  }
+
+  #gallery-user {
    columns: 3 200px;
    margin: 150px 18vw 0px 18vw;
    background-color: #2D2D29;
@@ -99,9 +113,9 @@ body{
    position: absolute;
    top: 0;
    bottom: 5000;
- }
+  }
 
- #gallery-user img {
+  #gallery-user img {
    border: 3px solid #63444a;
    border-radius: 10px;
    box-shadow: 4px 4px 6px;
@@ -109,586 +123,752 @@ body{
    object-fit: cover;
    opacity: 0.6;
    transition: 0.75s;
- }
+  }
 
- #gallery-user img:hover {
+  #gallery-user img:hover {
    filter: grayscale(0%);
    opacity: 1;
- }
+  }
 
- #show-title{
+  #show-title{
    text-align: center;
    margin: 10px 0 0 0;
- }
+  }
 
+  /* Show Page */
 
- /* SHOW PAGE BELOW */
-
-#show-page {
-  display: grid;
-  grid-column-gap: 20px;
-  grid-template-columns: 45% 55%;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "pack-image pack-samples"
-    "sample-form pack-samples"
-    "pack-description pack-description"
-    "pack-reviews pack-reviews";
-  padding: 30px 5vw;
-}
-
-#show-page #show-image {
-  position: relative;
-  text-align: center;
-}
-
-#show-page img {
-  border: 3px solid #63444a;
-  border-radius: 10px;
-  box-shadow: 4px 4px 6px;
-  grid-area: pack-image;
-  max-width: 100%;
-}
-
-#show-title{
-  color: white;
-}
-
-#show-text {
-  grid-area: pack-description;
-  margin-top: 20px;
-  height: 200px;
-}
-
-#show-page h2 {
-  background-color: #2B2726;
-  color: white;
-  font-family: "Fjalla One", sans-serif;
-  font-size: 40px;
-  letter-spacing: 1px;
-  margin: 0;
-  padding: 0px 15px;
-  position: relative;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px #111;
-}
-
-/* Sample Form */
-
-#sample-form-div {
-  grid-area: sample-form;
-}
-
-#zone-div {
-  text-align: center;
-}
-
-.dropzone {
-  margin: 0 10vw 0 12.5vw;
-  position: relative;
-}
-
-#sample-form-div {
-  margin: 10px;
-}
-
-#sample-form h3{
-  text-align: center;
-  font-size: 30px;
-  text-shadow: 3px 4px 4px black;
-  color: white;
-}
-
-#dropzone-text {
-  font-size: 20px;
-  text-align: center;
-  color: white;
-  text-shadow: 3px 4px 4px black;
-}
-
-.sample-form-render {
-  text-align: center;
-}
-
-.sample-form-render label{
-  font-size: 18px;
-  text-shadow: 3px 4px 4px black;
-  text-align: center;
-  color: white;
-}
-
-.sample-form-render .button {
-  background-color: #30261C;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  opacity: 0.6;
-  transition: 0.75s;
-  border-radius: 50px;
-}
-
-.sample-form-render .button:hover{
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-@media (max-width: 800px) {
   #show-page {
-    display: initial;
-    max-width: 90%;
-    padding: 0;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 45% 55%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "pack-image pack-samples"
+      "sample-form pack-samples"
+      "pack-description pack-description"
+      "pack-reviews pack-reviews";
+    padding: 30px 5vw;
+  }
+
+  #show-page #show-image {
+    position: relative;
+    text-align: center;
   }
 
   #show-page img {
-    grid-area: none;
+    border: 3px solid #63444a;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px;
+    grid-area: pack-image;
+    max-width: 100%;
+  }
+
+  #show-title{
+    color: white;
+  }
+
+  #show-text {
+    grid-area: pack-description;
+    margin-top: 20px;
+    height: 200px;
+  }
+
+  #show-page h2 {
+    background-color: #2B2726;
+    color: white;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0px 15px;
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #111;
+  }
+
+  /* Sample Form */
+
+  #sample-form-div {
+    grid-area: sample-form;
+  }
+
+  #zone-div {
+    text-align: center;
+  }
+
+  .dropzone {
+    margin: 0 10vw 0 12.5vw;
+    position: relative;
+  }
+
+  #sample-form-div {
+    margin: 10px;
+  }
+
+  #sample-form h3{
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 3px 4px 4px black;
+    color: white;
+  }
+
+  #dropzone-text {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 4px 4px black;
+  }
+
+  .sample-form-render {
+    text-align: center;
+  }
+
+  .sample-form-render label{
+    font-size: 18px;
+    text-shadow: 3px 4px 4px black;
+    text-align: center;
+    color: white;
+  }
+
+  .sample-form-render .button {
+    background-color: #30261C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.75s;
+    border-radius: 50px;
+  }
+
+  .sample-form-render .button:hover{
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  #show-text p {
+    background-color: #2B2726;
+    border: 15px solid;
+    border-color: #575A65;
+    color: white;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    min-height: 150px;
+    padding: 15px;
+    position: relative;
+  }
+
+  .sample-tile {
+    grid-area: pack-samples;
+    margin-left: 100px;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 50px;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .player-buttons {
+    border-radius: 100%;
+    border-color: black;
+    padding: 10px;
+    background-color:rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+    color: white;
+    margin: 10px 0 10px 40px;
+    font-size: 2em;
+    font-weight: normal;
+  }
+
+  .player-buttons:hover{
+    background-color: black;
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .player-buttons:focus{
+    background-color: black;
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* New Pack Form */
+
+  #new-pack-form{
+    margin: 30px 500px 0px 500px;
+    text-align: center;
+  }
+
+  #new-pack-form h2{
+    color: white;
+    text-shadow: 1px 2px 2px black;
+  }
+
+  #new-pack-form label{
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-size: 1em;
+    margin: 30px 0 10px 0;
+  }
+
+  /* user registration */
+
+  #new-user-form{
+    margin: 0 450px 0 450px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+
+  #new-user-form label{
+    margin: 0 100px 0 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-size: 1em;
+  }
+
+  #user_profile_photo{
+    margin: 0 0 20px 100px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+
+  #user-sign-up-title {
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 0 0 20px 0;
+  }
+
+  .new-user-submit-button input{
+    background-color: #30261C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.75s;
+    border-radius: 50px;
+    margin: 0 0 50px 0;
+  }
+
+  .new-user-submit-button input:hover{
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  #user_profile_photo input{
+    background-color: #30261C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.75s;
+    border-radius: 50px;
+  }
+
+  /* User Login Page */
+
+  #user-log-in-form {
+    margin: 0 450px 0 450px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+
+  #user-sign-in-title {
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 10px 0 20px 0;
+  }
+
+  #user-log-in-form label{
+    margin: 0 100px 0 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-size: 1em;
+  }
+
+  #devise-link-text {
+    margin: 0 100px 0 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-size: 1.3em;
+  }
+
+  #devise-link-text a {
+    color: white;
+  }
+
+  /* User Forgot Password */
+
+  #forgot-your-password {
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 50px 0 20px 0;
+  }
+
+  #forgot-password-form {
+    margin: 0 450px 0 450px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+
+  #forgot-password-form label{
+    margin: 0 100px 0 100px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    font-size: 1em;
+  }
+
+  #forgot-password-submit input{
+    background-color: #30261C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.75s;
+    border-radius: 50px;
+    margin: 0 0 50px 0;
+  }
+
+  #forgot-password-submit input:hover{
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  /* Drum Machine */
+  #drum-page {
+    position: absolute;
+    margin: 0 10vw 0 21vw;
+  }
+
+  #drum-machine-title {
+    text-align: center;
+    color: white;
+    font-family: 'Fredoka One';
+    text-shadow: 3px 5px 5px black;
+    position: relative;
+    margin: 3vw 0px 1vw 0px;
+  }
+
+  #gallery-circles {
+    columns: 3 18vw;
+    text-align: center;
+    background-color: #2D2D29;
+    height: 90%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  #gallery-circles div {
+    border: 3px solid #63444a;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    box-shadow:
+        inset 60px 0 120px #0D6759,
+        inset -60px 0 120px #452B72;
+  }
+
+  .drum-tile {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 2px #fff;
+    object-fit: cover;
+  }
+
+  #gallery-circles h2 {
+    text-align: center;
+    font-family: 'Bree Serif';
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 50px 0 20px 0;
+    word-wrap: break-word;
+  }
+
+  #gallery-circles h3 {
+    text-align: center;
+    font-family: 'Bree Serif';
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 50px 0 20px 0;
+  }
+
+  #gallery-circles select {
+    background-color: #30261C;
+    border-radius: 40px;
+    border-color: white;
+    border: 2px solid;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.85;
+    transition: 0.75s;
+    width: 15vw;
   }
 }
 
-#show-text p {
-  background-color: #2B2726;
-  border: 15px solid;
-  border-color: #575A65;
-  color: white;
-  font-size: 1.25em;
-  letter-spacing: 1px;
-  min-height: 150px;
-  padding: 15px;
-  position: relative;
-}
+@media (max-width: 600px) {
+  *{
+    margin: 0;
+    padding: 0;
+  }
 
-.sample-tile {
-  grid-area: pack-samples;
-  margin-left: 100px;
-  margin-top: 15px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  border-radius: 50px;
-  text-align: center;
-  background-color:rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 1em;
-  font-weight: bold;
-}
+  body{
+    background-image: url("https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+  }
 
-.player-buttons {
-  border-radius: 100%;
-  border-color: black;
-  padding: 10px;
-  background-color:rgba(0, 0, 0, 0.7);
-  opacity: 0.9;
-  color: white;
-  margin: 10px 0 10px 40px;
-  font-size: 2em;
-  font-weight: normal;
-}
+  /* Index Page */
 
-.player-buttons:hover{
-  background-color: black;
-  filter: grayscale(0%);
-  opacity: 1;
-}
+  #gallery {
+   columns: 2 5vw;
+   margin: 70px 7vw 0px 7vw;
+   background-color: #2D2D29;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+  }
 
-.player-buttons:focus{
-  background-color: black;
-  filter: grayscale(0%);
-  opacity: 1;
-}
+  #gallery img {
+   border: 3px solid #63444a;
+   border-radius: 10px;
+   box-shadow: 4px 4px 6px;
+   filter: grayscale(70%);
+   object-fit: cover;
+   opacity: 0.6;
+   transition: 0.75s;
+  }
 
-#new-pack-form{
-  margin: 30px 500px 0px 500px;
-  text-align: center;
-}
+  #gallery img:hover {
+   filter: grayscale(0%);
+   opacity: 1;
+  }
 
-#new-pack-form h2{
-  color: white;
-  text-shadow: 1px 2px 2px black;
-}
+  /* Top Bar */
 
-#new-pack-form label{
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  font-size: 1em;
-  margin: 30px 0 10px 0;
-}
+  .top-bar{
+    position: sticky;
+    top: 0;
+    height: 50px;
+    opacity: 0.8;
+    background-color: black;
+  }
 
-/* user registration */
+  .top-bar h1 {
+    font-family: 'Ubuntu';
+    font-size: 1em;
+  }
 
-#new-user-form{
-  margin: 0 450px 0 450px;
-  text-align: center;
-  color: white;
-  font-size: 1em;
-}
+  .top-bar .right {
+    text-align: left;
+  }
 
-#new-user-form label{
-  margin: 0 100px 0 100px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  font-size: 1em;
-}
+  .top-bar a {
+    color: black;
+    background-color: black;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    opacity: 1;
+  }
 
-#user_profile_photo{
-  margin: 0 0 20px 100px;
-  text-align: center;
-  color: white;
-  font-size: 1em;
-}
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background-color: black;
+    font-size: 15px;
+  }
 
-#user-sign-up-title {
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 0 0 20px 0;
-}
+  #nav a:hover {
+    color: black;
+  }
 
-.new-user-submit-button input{
-  background-color: #30261C;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  opacity: 0.6;
-  transition: 0.75s;
-  border-radius: 50px;
-  margin: 0 0 50px 0;
-}
+  /* Drum Machine */
 
-.new-user-submit-button input:hover{
-  filter: grayscale(0%);
-  opacity: 1;
-}
+  #drum-machine-title {
+    text-align: center;
+    color: white;
+    font-family: 'Fredoka One';
+    text-shadow: 3px 5px 5px black;
+    position: relative;
+    margin: 3vw 0px 1vw 0px;
+  }
 
-#user_profile_photo input{
-  background-color: #30261C;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  opacity: 0.6;
-  transition: 0.75s;
-  border-radius: 50px;
-}
+  #drum-page {
+    position: absolute;
+    margin: 0 5vw 0 5vw;
+  }
 
-/* User Login Page */
+  #gallery-circles {
+    columns: 3 8vw;
+    text-align: center;
+    background-color: #2D2D29;
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    padding: 10px;
+    border-radius: 20px;
+  }
 
-#user-log-in-form {
-  margin: 0 450px 0 450px;
-  text-align: center;
-  color: white;
-  font-size: 1em;
-}
+  #gallery-circles div {
+    border: 3px solid #63444a;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    box-shadow:
+        inset 60px 0 120px #0D6759,
+        inset -60px 0 120px #452B72;
+  }
 
-#user-sign-in-title {
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 10px 0 20px 0;
-}
+  #gallery-circles h2 {
+    text-align: center;
+    font-family: 'Bree Serif';
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 50px 0 20px 0;
+    word-wrap: break-word;
+  }
 
-#user-log-in-form label{
-  margin: 0 100px 0 100px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  font-size: 1em;
-}
+  #gallery-circles h3 {
+    text-align: center;
+    font-family: 'Bree Serif';
+    font-size: .8em;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+    margin: 50px 0 20px 0;
+  }
 
-#devise-link-text {
-  margin: 0 100px 0 100px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  font-size: 1.3em;
-}
+  #gallery-circles select {
+    background-color: #30261C;
+    border-radius: 40px;
+    border-color: white;
+    border: 2px solid;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.85;
+    transition: 0.75s;
+    width: 15vw;
+  }
 
-#devise-link-text a {
-  color: white;
-}
+  /* Show Page */
 
-/* User Forgot Password */
+  #show-title{
+   text-align: center;
+   margin: 10px 0 0 0;
+  }
 
-#forgot-your-password {
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
+  #show-page #show-image {
+    position: relative;
+    text-align: center;
+  }
 
-#forgot-password-form {
-  margin: 0 450px 0 450px;
-  text-align: center;
-  color: white;
-  font-size: 1em;
-}
+  #show-page img {
+    border: 3px solid #63444a;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px;
+    grid-area: pack-image;
+    max-width: 100%;
+  }
 
-#forgot-password-form label{
-  margin: 0 100px 0 100px;
-  text-align: center;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  font-size: 1em;
-}
+  #show-title{
+    color: white;
+  }
 
-#forgot-password-submit input{
-  background-color: #30261C;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  opacity: 0.6;
-  transition: 0.75s;
-  border-radius: 50px;
-  margin: 0 0 50px 0;
-}
+  #show-text {
+    margin-top: 20px;
+    margin-bottom: 200px;
+    height: 200px;
+  }
 
-#forgot-password-submit input:hover{
-  filter: grayscale(0%);
-  opacity: 1;
-}
+  #show-page h2 {
+    background-color: #2B2726;
+    color: white;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0px 15px;
+    position: relative;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px #111;
+  }
 
-/* User Show Page */
+  #show-page p {
+    margin-bottom: 30px;
+  }
 
-#user-show-title {
-  text-shadow: 3px 5px 5px black;
-  text-align: center;
-  color: white;
-  font-family: 'Fredoka One';
-  margin: 20px 0 0 0;
-}
+  .sample-tile {
+    margin: 15px 0 15px 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 50px;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+  }
 
-#soundcloud {
-  margin: 700px 0 0 0;
-}
+  .player-buttons {
+    border-radius: 100%;
+    border-color: black;
+    padding: 1px;
+    background-color:rgba(0, 0, 0, 0.7);
+    opacity: 0.9;
+    color: white;
+    margin: 10px 0 10px 40px;
+    font-size: 2em;
+    font-weight: normal;
+  }
 
-/* Drum Machine */
-#drum-page {
-  position: absolute;
-  margin: 0 10vw 0 16vw;
-}
+  .player-buttons:hover{
+    background-color: black;
+    filter: grayscale(0%);
+    opacity: 1;
+  }
 
-#gallery-circles {
-  columns: 3 200px;
-  text-align: center;
-  background-color: #2D2D29;
-  height: 90%;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  padding: 10px;
-  border-radius: 20px;
-}
+  .player-buttons:focus{
+    background-color: black;
+    filter: grayscale(0%);
+    opacity: 1;
+  }
 
-#gallery-circles div {
-  border: 3px solid #63444a;
-  border-radius: 10px;
-  box-shadow: 4px 4px 6px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  box-shadow:
-      inset 60px 0 120px #0D6759,  /* left magenta */
-      inset -60px 0 120px #452B72;
-}
+  /* Sample Form */
 
+  #sample-form-div {
+    grid-area: sample-form;
+  }
 
-#drum-machine-title {
-  text-align: center;
-  color: white;
-  font-family: 'Fredoka One';
-  text-shadow: 3px 5px 5px black;
-  position: relative;
-  margin: 3vw 0px 1vw 0px;
-}
+  #zone-div {
+    text-align: center;
+  }
 
-#kick-circle {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  border: solid 2px #fff;
-}
+  .dropzone {
+    margin: 0 1vw 0 23vw;
+    position: relative;
+  }
 
-#snare-circle {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: black;
-}
+  #sample-form-div {
+    margin: 10px;
+  }
 
-#hat-circle {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: black;
-}
+  #sample-form h3{
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 3px 4px 4px black;
+    color: white;
+  }
 
-#percussion-circle {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: black;
-}
+  #dropzone-text {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 4px 4px black;
+  }
 
-#percussion-circle-2 {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: black;
-}
+  .sample-form-render {
+    text-align: center;
+  }
 
-#percussion-circle-3 {
-  width: 300px;
-  height: 300px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: black;
-}
+  .sample-form-render label{
+    font-size: 18px;
+    text-shadow: 3px 4px 4px black;
+    text-align: center;
+    color: white;
+  }
 
-#kick-title {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
+  .sample-form-render .button {
+    background-color: #30261C;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    filter: grayscale(70%);
+    object-fit: cover;
+    opacity: 0.6;
+    transition: 0.75s;
+    border-radius: 50px;
+  }
 
-#kick-instructions {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
+  .sample-form-render .button:hover{
+    filter: grayscale(0%);
+    opacity: 1;
+  }
 
-#snare-title {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#snare-instructions {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#hat-title {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#hat-instructions {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-title {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-instructions {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-title-2 {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-instructions-2 {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-title-3 {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#percussion-instructions-3 {
-  text-align: center;
-  font-family: 'Bree Serif';
-  color: white;
-  text-shadow: 1px 2px 2px black;
-  margin: 50px 0 20px 0;
-}
-
-#gallery-circles select {
-  background-color: #30261C;
-  border-radius: 40px;
-  border-color: white;
-  border: 2px solid;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  filter: grayscale(70%);
-  object-fit: cover;
-  opacity: 0.85;
-  transition: 0.75s;
-  width: 15vw;
-}
-
-select {
-  text-align: center;
+  #show-text p {
+    background-color: #2B2726;
+    border: 15px solid;
+    border-color: #575A65;
+    color: white;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    min-height: 150px;
+    padding: 15px;
+    position: relative;
+  }
 }
