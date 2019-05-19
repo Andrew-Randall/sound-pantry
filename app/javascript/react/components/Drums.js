@@ -195,27 +195,27 @@ class Drums extends Component {
             />
           </div>
             <div id="gallery-circles">
-              <div id="kick-circle">
-                <h2 id="kick-title">KICK</h2>
-                <h3 id="kick-instructions">(press 'a' key)</h3>
+              <div className="drum-tile">
+                <h2>KICK</h2>
+                <h3>(press 'a' key)</h3>
                 <form id="kick-form">
                   <select onChange={this.handleKickSelect}>
                     {kickPathsArray}
                   </select>
                 </form>
               </div>
-              <div id="snare-circle">
-                <h2 id="snare-title">SNARE</h2>
-                <h3 id="snare-instructions">(press 'd' key)</h3>
+              <div className="drum-tile">
+                <h2>SNARE</h2>
+                <h3>(press 'd' key)</h3>
                 <form id="snare-form">
                   <select onChange={this.handleSnareSelect}>
                     {snarePathsArray}
                   </select>
                 </form>
               </div>
-              <div id="hat-circle">
-                <h2 id="hat-title">HAT</h2>
-                <h3 id="hat-instructions">(press 'g' key)</h3>
+              <div className="drum-tile">
+                <h2>HAT</h2>
+                <h3>(press 'g' key)</h3>
                 <form id="hat-form">
                   <select onChange={this.handleHatSelect}>
                     {hatPathsArray}
@@ -224,27 +224,27 @@ class Drums extends Component {
               </div>
             </div>
             <div id="gallery-circles">
-              <div id="percussion-circle">
-                <h2 id="percussion-title">PERCUSSION 1</h2>
-                <h3 id="percussion-instructions">(press 'w' key)</h3>
+              <div className="drum-tile">
+                <h2>PERCUSSION 1</h2>
+                <h3>(press 'w' key)</h3>
                 <form id="percussion-form">
                   <select onChange={this.handlePercSelect}>
                     {percPathsArray}
                   </select>
                 </form>
               </div>
-              <div id="percussion-circle-2">
-                <h2 id="percussion-title-2">PERCUSSION 2</h2>
-                <h3 id="percussion-instructions-2">(press 'y' key)</h3>
+              <div className="drum-tile">
+                <h2>PERCUSSION 2</h2>
+                <h3>(press 'y' key)</h3>
                 <form id="percussion-form-2">
                   <select onChange={this.handlePerc2Select}>
                     {percPathsArray}
                   </select>
                 </form>
               </div>
-              <div id="percussion-circle-3">
-                <h2 id="percussion-title-3">PERCUSSION 3</h2>
-                <h3 id="percussion-instructions-3">(press 'j' key)</h3>
+              <div className="drum-tile">
+                <h2>PERCUSSION 3</h2>
+                <h3>(press 'j' key)</h3>
                 <form id="percussion-form-3">
                   <select onChange={this.handlePerc3Select}>
                     {percPathsArray}
