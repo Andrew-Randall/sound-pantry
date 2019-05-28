@@ -60,4 +60,44 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
       expect(response_json["description"]).not_to eql(pack_2.description)
     end
   end
+
+  describe "POST#create" do
+    let!(:user) { User.create!(email: "andrewrandall1@gmail.com", password: "password", password_confirmation: "password", username: "username", role: "member") };
+    it "creates a collection" do
+      sign_in user
+      post_json = {
+        name: "Test Collection",
+        img: "www.picture.com",
+        description: "A bunch of sounds",
+        user_id: user.id
+      }.to_json
+
+      prev_count = Collection.count
+      post(:create, body: post_json)
+      expect(Collection.count).to eq(prev_count + 1)
+    end
+
+    it "returns the json of the newly posted collection" do
+      sign_in user
+      post_json = {
+        name: "Test Collection",
+        img: "www.picture.com",
+        description: "A bunch of sounds",
+        user_id: user.id
+      }.to_json
+
+      post(:create, body: post_json)
+      returned_json = JSON.parse(response.body)
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq ("application/json")
+
+      expect(returned_json).to be_kind_of(Hash)
+      expect(returned_json).to_not be_kind_of(Array)
+      expect(returned_json["collection"]["name"]).to eq "Test Collection"
+      expect(returned_json["collection"]["img"]).to eq "www.picture.com"
+      expect(returned_json["collection"]["description"]).to eq "A bunch of sounds"
+      expect(returned_json["collection"]["user_id"]).to eq user.id
+    end
+  end
 end
