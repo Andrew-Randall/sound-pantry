@@ -9,10 +9,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import { faPause } from '@fortawesome/free-solid-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faPlayCircle)
 library.add(faPause)
 library.add(faDownload)
+library.add(faTrash)
 
 document.addEventListener('DOMContentLoaded', () => {
   let reactElement = document.getElementById('app')
