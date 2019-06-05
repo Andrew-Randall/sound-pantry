@@ -14,6 +14,7 @@ class CollectionShowContainer extends Component {
       currentUser: ""
     }
     this.onSubmit = this.onSubmit.bind(this)
+    this.forceRender = this.forceRender.bind(this)
   }
 
   componentDidMount() {
@@ -76,15 +77,20 @@ class CollectionShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  forceRender() {
+    this.componentDidMount();
+  }
+
   render() {
     let samples
     let currentUserId = this.state.currentUser.id
 
     if (this.state.samples.length >= 0){
         samples = <SamplesContainer
-          currentUserId={currentUserId}
+          currentUser={this.state.currentUser}
           collectionId={this.state.collection.id}
           samples={this.state.samples}
+          forceRender={this.forceRender}
         />
     }
     return (

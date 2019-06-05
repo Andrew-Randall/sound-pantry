@@ -28,10 +28,13 @@ class SamplesContainer extends Component {
           name={sample.name}
           path={sample.path}
           userId={sample.user_id}
-          packId={sample.pack_id}
+          collectionId={sample.collection_id}
           play={playFunction}
           pause={pauseFunction}
           download={downloadFunction}
+          forceRender={this.props.forceRender}
+          currentUser={this.props.currentUser}
+          currentUserId={this.props.currentUser.id}
         />
       )
     })

@@ -24,4 +24,23 @@ class Api::V1::SamplesController < ApplicationController
         status: :unprocessable_entity
     end
   end
+
+  def destroy
+    sample = Sample.find(params[:id])
+    user = current_user
+
+    if user.id == sample.user.id || user.role == "admin"
+      sample.delete
+      render json: {id: params[:id]}
+    else
+      flash.now[:errors] = "You must be the creator of this pack to delete samples!"
+      render json: {id: params[:id]}
+    end
+  end
+
+  private
+
+  def sample_params
+    params.require(:sample).permit(:user_id, :collection_id, :name, :path, :sample_path)
+  end
 end

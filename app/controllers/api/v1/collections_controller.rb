@@ -27,6 +27,7 @@ class Api::V1::CollectionsController < ApplicationController
   end
 
   private
+  
   def user_signed_in
     current_user
   end
